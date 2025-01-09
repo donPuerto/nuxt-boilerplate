@@ -1,0 +1,35 @@
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist/
+
+# Node dependencies
+node_modules/
+
+# pnpm specific
+.pnpm-store/
+pnpm-lock.yaml
+
+# Ignore temporary or log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs
+*.log
+
+# Misc
+.DS_Store
+
+# Local env files
+.env
+.env.*
+!.env.example
+
+# Ignore any IDE/editor files
+.vscode/
+.idea/
