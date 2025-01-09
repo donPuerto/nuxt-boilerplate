@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { computed, ref, onMounted } from 'vue'
+import { useAppConfig, useHead, useI18n } from '#imports'
 import type JSConfetti from 'js-confetti'
-import { useAppConfig, useHead, useSeoMeta, useI18n } from '#imports'
+import { computed, onMounted, ref } from 'vue'
 
 // Initialize
 let jsConfetti: JSConfetti | null = null
@@ -9,7 +9,7 @@ let jsConfetti: JSConfetti | null = null
 // Config
 const appConfig = useAppConfig()
 const config = useRuntimeConfig().public
-const baseUrl =  config.site.url
+// const baseUrl =  config.site.url
 
 // I18n
 const { t } = useI18n()
@@ -32,7 +32,7 @@ const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'My Website',
-  url: baseUrl
+  // url: baseUrl
 }
 
 // Computed

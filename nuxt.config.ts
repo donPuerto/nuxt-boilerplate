@@ -1,8 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import tailwindcss from '@tailwindcss/vite'
 import { createResolver } from '@nuxt/kit'
-import pkg from './package.json'
+import tailwindcss from '@tailwindcss/vite'
 import { defineNuxtConfig } from 'nuxt/config'
+import pkg from './package.json'
 
 const { resolve } = createResolver(import.meta.url)
 
@@ -11,9 +11,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
     head: {
-      link: [
-        { rel: 'stylesheet', href: '~/assets/css/main.css' }
-      ]
+      link: [],
     },
     rootAttrs: {
       'vaul-drawer-wrapper': '',
@@ -34,7 +32,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
   ],
   css: [
-    '~/app/assets/css/main.css',
+    './assets/css/main.css',
   ],
   
   site: {
@@ -60,10 +58,10 @@ export default defineNuxtConfig({
   },
 
   // To re-enable _all_ Nuxt v3 behavior, set the following options:
-  srcDir: ".",
-   dir: {
-    app: "app",
-  },
+  // srcDir: ".",
+  //  dir: {
+  //   app: "app",
+  // },
   // experimental: {
   //   scanPageMeta: 'after-resolve',
   //   sharedPrerenderData: false,
