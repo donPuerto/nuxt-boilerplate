@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup lang="ts" >
 // I18n
 const { t } = useI18n()
 
@@ -11,13 +11,13 @@ useHead(() => ({
   meta: [
     { name: 'description', content: description.value },
     { property: 'og:title', content: title.value },
-    { property: 'og:description', content: description.value }
-  ]
+    { property: 'og:description', content: description.value },
+  ],
 }))
-</script>
+</script >
 
-<template>
-  <div>
+<template >
+  <div >
     Road Map
-  </div>
-</template>
+  </div >
+</template >

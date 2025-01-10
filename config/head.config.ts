@@ -20,11 +20,11 @@ const headConfig = {
     { name: 'twitter:title', content: 'Nuxt Boilerplate' },
     { name: 'twitter:description', content: 'A Nuxt 3 Boilerplate with TypeScript and Tailwind CSS' },
     { name: 'twitter:image', content: '/preview-image.png' },
-    { name: 'twitter:image:alt', content: 'Nuxt Boilerplate Preview' }
+    { name: 'twitter:image:alt', content: 'Nuxt Boilerplate Preview' },
   ],
   link: [
     { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-    { rel: 'manifest', href: '/manifest.json' }
+    { rel: 'manifest', href: '/manifest.json' },
   ],
   script: [
     {
@@ -32,15 +32,15 @@ const headConfig = {
       children: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'WebSite',
-        name: 'Nuxt Boilerplate',
-        description: 'A Nuxt 3 Boilerplate with TypeScript and Tailwind CSS',
-        url: 'https://nuxt-boilerplate.netlify.app'
-      })
-    }
+        'name': 'Nuxt Boilerplate',
+        'description': 'A Nuxt 3 Boilerplate with TypeScript and Tailwind CSS',
+        'url': 'https://nuxt-boilerplate.netlify.app',
+      }),
+    },
   ],
   htmlAttrs: {
-    lang: 'en'
-  }
+    lang: 'en',
+  },
 }
 
 export default headConfig

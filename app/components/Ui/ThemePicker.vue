@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script lang="ts" setup >
 import colors from 'tailwindcss/colors'
 import { omit } from '#ui/utils'
 
@@ -56,11 +56,11 @@ const mode = computed({
     colorMode.preference = option
   },
 })
-</script>
+</script >
 
-<template>
-  <UPopover :ui="{ content: 'w-72 px-6 py-4 flex flex-col gap-4' }">
-    <template #default="{ open }">
+<template >
+  <UPopover :ui="{ content: 'w-72 px-6 py-4 flex flex-col gap-4' }" >
+    <template #default="{ open }" >
       <UButton
         size="xl"
         icon="i-lucide-swatch-book"
@@ -70,13 +70,13 @@ const mode = computed({
         aria-label="Color picker"
         :ui="{ leadingIcon: 'text-[var(--ui-primary)]' }"
       />
-    </template>
-    <template #content>
-      <fieldset>
-        <legend class="text-[11px] leading-none font-semibold mb-2">
+    </template >
+    <template #content >
+      <fieldset >
+        <legend class="text-[11px] leading-none font-semibold mb-2" >
           Primary
-        </legend>
-        <div class="grid grid-cols-3 gap-1 -mx-2">
+        </legend >
+        <div class="grid grid-cols-3 gap-1 -mx-2" >
           <UiThemePickerButton
             v-for="color in primaryColors"
             :key="color"
@@ -85,15 +85,15 @@ const mode = computed({
             :selected="primary === color"
             @click="primary = color"
           />
-        </div>
-      </fieldset>
+        </div >
+      </fieldset >
 
-      <fieldset>
-        <legend class="text-[11px] leading-none font-semibold mb-2">
+      <fieldset >
+        <legend class="text-[11px] leading-none font-semibold mb-2" >
           Neutral
-        </legend>
+        </legend >
 
-        <div class="grid grid-cols-3 gap-1 -mx-2">
+        <div class="grid grid-cols-3 gap-1 -mx-2" >
           <UiThemePickerButton
             v-for="color in neutralColors"
             :key="color"
@@ -102,15 +102,15 @@ const mode = computed({
             :selected="neutral === color"
             @click="neutral = color"
           />
-        </div>
-      </fieldset>
+        </div >
+      </fieldset >
 
-      <fieldset>
-        <legend class="text-[11px] leading-none font-semibold mb-2">
+      <fieldset >
+        <legend class="text-[11px] leading-none font-semibold mb-2" >
           Radius
-        </legend>
+        </legend >
 
-        <div class="grid grid-cols-5 gap-1 -mx-2">
+        <div class="grid grid-cols-5 gap-1 -mx-2" >
           <UiThemePickerButton
             v-for="r in radiuses"
             :key="r"
@@ -119,15 +119,15 @@ const mode = computed({
             :selected="radius === r"
             @click="radius = r"
           />
-        </div>
-      </fieldset>
+        </div >
+      </fieldset >
 
-      <fieldset>
-        <legend class="text-[11px] leading-none font-semibold mb-2">
+      <fieldset >
+        <legend class="text-[11px] leading-none font-semibold mb-2" >
           Theme
-        </legend>
+        </legend >
 
-        <div class="flex gap-1 -mx-2">
+        <div class="flex gap-1 -mx-2" >
           <UiThemePickerButton
             v-for="m in modes"
             :key="m.label"
@@ -135,8 +135,8 @@ const mode = computed({
             :selected="mode === m.label"
             @click="mode = m.label"
           />
-        </div>
-      </fieldset>
-    </template>
-  </UPopover>
-</template>
+        </div >
+      </fieldset >
+    </template >
+  </UPopover >
+</template >

@@ -8,6 +8,17 @@ const { resolve } = createResolver(import.meta.url)
 
 // Define config with proper type
 export default defineNuxtConfig({
+  modules: [
+    '@nuxt/ui',
+    '@nuxt/devtools',
+    '@nuxt/eslint',
+    '@nuxt/icon',
+    '@nuxt/fonts',
+    '@nuxtjs/robots',
+    '@nuxtjs/sitemap',
+    'nuxt-schema-org',
+    '@nuxtjs/i18n',
+  ],
   devtools: { enabled: true },
   app: {
     head: {
@@ -20,21 +31,10 @@ export default defineNuxtConfig({
     // description: 'A modern Nuxt 3 boilerplate with comprehensive SEO setup',
     // defaultLocale: 'en',
   },
-  modules: [
-    '@nuxt/ui',
-    '@nuxt/devtools',
-    '@nuxt/eslint',
-    '@nuxt/icon',
-    '@nuxt/fonts',
-    '@nuxtjs/robots',
-    '@nuxtjs/sitemap',
-    'nuxt-schema-org',
-    '@nuxtjs/i18n',
-  ],
   css: [
     './assets/css/main.css',
   ],
-  
+
   site: {
     url: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
     name: 'Nuxt Boilerplate',
@@ -51,7 +51,7 @@ export default defineNuxtConfig({
       devDependencies: {
         typescript: pkg.devDependencies.typescript,
       },
-    }
+    },
   },
   future: {
     compatibilityVersion: 4,
@@ -122,7 +122,7 @@ export default defineNuxtConfig({
         file: 'fr.ts',
       },
     ],
-    //langDir: 'i18n',
+    // langDir: 'i18n',
     lazy: true,
   },
   icon: {

@@ -1,13 +1,13 @@
-<script setup lang="ts">
+<script setup lang="ts" >
 defineProps<{
   label: string
   icon?: string
   chip?: string
   selected?: boolean
 }>()
-</script>
+</script >
 
-<template>
+<template >
   <UButton
     size="sm"
     color="neutral"
@@ -15,7 +15,7 @@ defineProps<{
     :label="label"
     :variant="selected ? 'soft' : 'outline'"
   >
-    <template v-if="chip" #leading>
+    <template v-if="chip" #leading >
       <span
         class="inline-block w-2 h-2 rounded-full"
         :class="`bg-[var(--color-light)] dark:bg-[var(--color-dark)]`"
@@ -24,6 +24,6 @@ defineProps<{
           '--color-dark': `var(--color-${chip}-400)`,
         }"
       />
-    </template>
-  </UButton>
-</template>
+    </template >
+  </UButton >
+</template >

@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup lang="ts" >
 import { defineProps, computed } from 'vue'
 
 // Define the NavigationMenuItem type
@@ -16,13 +16,13 @@ const props = defineProps<{
 }>()
 
 // Transform navigation items to use onSelect for navigation
-const items = computed(() => props.navigation.map(item => ({
+const items = computed(() => props.navigation.map((item) => ({
   ...item,
-  click: () => item.onSelect()
+  click: () => item.onSelect(),
 })))
-</script>
+</script >
 
-<template>
+<template >
   <UNavigationMenu
     color="primary"
     variant="link"
@@ -30,4 +30,4 @@ const items = computed(() => props.navigation.map(item => ({
     :items="items"
     class="justify-center"
   />
-</template>
+</template >
