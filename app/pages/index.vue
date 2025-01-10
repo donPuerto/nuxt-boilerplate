@@ -195,9 +195,9 @@ const handleStatClick = async () => {
 <template>
   <main :class="`relative min-h-screen overflow-hidden bg-${neutral}-50 dark:bg-${neutral}-900`">
     <!-- Background Effects -->
-    <div class="absolute inset-0 overflow-hidden">
+     <div class="absolute inset-0 overflow-hidden">
       <div class="absolute inset-0">
-        <div :class="`absolute inset-0 bg-gradient-to-br from-${neutral}-100 via-transparent to-${neutral}-100 dark:from-${neutral}-800 dark:via-transparent dark:to-${neutral}-800 opacity-70`" />
+       <div :class="`absolute inset-0 bg-gradient-to-br from-${neutral}-100 via-transparent to-${neutral}-100 dark:from-${neutral}-800 dark:via-transparent dark:to-${neutral}-800 opacity-70`" />
       </div>
     </div>
 

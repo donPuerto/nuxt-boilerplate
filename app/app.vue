@@ -12,7 +12,7 @@ const currentLocale = computed(() => locales[locale.value as keyof typeof locale
     <NuxtLoadingIndicator color="#FFF" />
     <div class="bg-[var(--ui-bg)]" vaul-drawer-wrapper>
       <NuxtLayout>
-        <NuxtPage />
+            <NuxtPage />
       </NuxtLayout>
     </div>
   </UApp>

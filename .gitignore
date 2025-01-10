@@ -31,5 +31,4 @@ logs
 !.env.example
 
 # Ignore any IDE/editor files
-.vscode/
 .idea/
