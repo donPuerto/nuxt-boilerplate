@@ -1,7 +1,6 @@
 <script setup lang="ts" >
 type DisplayMode = 'flag-only' | 'flag-with-label'
-type LocaleCode = 'en' | 'fr' | 'de'
-type LanguageCode = 'en-US' | 'fr-FR' | 'de-DE'
+type LocaleCode = 'us' | 'fr' | 'de'
 
 interface Props {
   mode?: DisplayMode
@@ -13,7 +12,6 @@ const props = withDefaults(defineProps<Props>(), {
 
 interface LocaleItem {
   code: LocaleCode
-  language: LanguageCode
   name: string
   icon: string
 }
@@ -38,61 +36,51 @@ const selectedLocaleItem = computed(() => {
 
 function getLocaleIcon(code: LocaleCode): string {
   switch (code) {
-    case 'en':
-      return 'flag:us-4x3'
+    case 'us':
+      return 'i-flag-us-4x3'
     case 'fr':
-      return 'flag:fr-4x3'
+      return 'i-flag-fr-4x3'
     case 'de':
-      return 'flag:de-4x3'
+      return 'i-flag-de-4x3'
     default:
-      return 'flag:us-4x3'
+      return 'i-flag-us-4x3'
   }
 }
 
-const switchLanguage = async (item: LocaleItem) => {
-  try {
-    const path = switchLocalePath(item.code)
-    if (path) {
-      await navigateTo(path, { replace: true })
-      isOpen.value = false
-    }
-  }
-  catch (error) {
-    // eslint-disable-next-line no-console
-    console.error('Failed to switch language:', error)
+const switchLanguage = (locale: LocaleItem) => {
+  const fullLocaleCode = getFullLocaleCode(locale.code)
+  const path = switchLocalePath(fullLocaleCode)
+  if (path) {
+    navigateTo(path)
+    isOpen.value = false
   }
 }
 
-const closeDropdown = () => {
-  isOpen.value = false
-}
-
-const dropdownRef = ref<HTMLElement | null>(null)
-
-onMounted(() => {
-  if (import.meta.client) {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.value && !dropdownRef.value.contains(event.target as Node)) {
-        closeDropdown()
-      }
-    }
-
-    document.addEventListener('click', handleClickOutside)
-
-    onUnmounted(() => {
-      document.removeEventListener('click', handleClickOutside)
-    })
-  }
+watch(locale, (newLocale) => {
+  selectedLocale.value = newLocale as LocaleCode
 })
+
+function getFullLocaleCode(code: LocaleCode): 'en-US' | 'fr-FR' | 'de-DE' {
+  switch (code) {
+    case 'us':
+      return 'en-US'
+    case 'fr':
+      return 'fr-FR'
+    case 'de':
+      return 'de-DE'
+    default:
+      return 'en-US'
+  }
+}
 </script >
 
 <template >
-  <div ref="dropdownRef" class="relative lang-switcher" >
+  <div class="relative" >
     <UButton
       variant="ghost"
       type="button"
       :class="[props.mode === 'flag-only' ? 'w-16' : 'w-36']"
-      @click.stop="isOpen = !isOpen"
+      @click="isOpen = !isOpen"
     >
       <UIcon
         v-if="selectedLocaleItem"
@@ -118,7 +106,7 @@ onMounted(() => {
         <button
           v-for="item in availableLocales"
           :key="item.code"
-          class="flex w-full items-center gap-x-2 px-3 py-2 text-sm text-gray-900 hover:bg-gray-200 dark:text-white dark:hover:bg-gray-700"
+          class="flex items-center w-full px-3 py-2 text-sm text-gray-900 gap-x-2 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
           :class="{ 'bg-gray-200 dark:bg-gray-700': selectedLocale === item.code }"
           @click="switchLanguage(item)"
         >
