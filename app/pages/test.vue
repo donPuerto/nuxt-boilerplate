@@ -4,8 +4,7 @@
 
 <template >
   <div >
-    <div >Test</div >
-    <div >Test 2</div >
+    test
   </div >
 </template >
 

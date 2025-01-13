@@ -2,7 +2,6 @@
 import * as locales from '@nuxt/ui/locale'
 
 const { locale } = useI18n()
-const appConfig = useAppConfig()
 
 const currentLocale = computed(() => locales[locale.value as keyof typeof locales])
 </script >

@@ -1,83 +1,83 @@
-import stylistic from '@stylistic/eslint-plugin'
+import tailwindcss from 'eslint-plugin-tailwindcss'
 import withNuxt from './.nuxt/eslint.config.mjs'
 
-export default withNuxt(
-  {
-    files: ['**/*.ts', '**/*.vue'],
-    rules: {
-      'no-console': 'error',
-      '@typescript-eslint/no-explicit-any': 'error',
-      '@typescript-eslint/ban-types': 'off',
-      'vue/html-closing-bracket-newline': ['error', {
-        singleline: 'never',
-        multiline: 'always',
-      }],
-      'vue/html-closing-bracket-spacing': ['error', {
-        startTag: 'always',
-        endTag: 'always',
-        selfClosingTag: 'always',
-      }],
-    },
-    ignores: [
-      'node_modules/',
-      'test/assets',
-      '**/.nuxt',
-      '**/.output',
-      'dist',
-    ],
+export default withNuxt({
+  files: ['**/*.ts', '**/*.tsx', '**/*.vue', '**/*.js'],
+  plugins: {
+    tailwindcss,
   },
-  {
-    files: ['**/*.vue'],
-    rules: {
-      'vue/component-tags-order': ['error', {
-        order: ['script', 'template', 'style'],
-      }],
-      'vue/html-indent': ['error', 2],
-      'vue/html-closing-bracket-newline': ['error', {
-        singleline: 'never',
-        multiline: 'always',
-      }],
-      'vue/html-closing-bracket-spacing': ['error', {
-        startTag: 'always',
-        endTag: 'always',
-        selfClosingTag: 'always',
-      }],
-      'vue/no-v-html': 'off',
-      'vue/html-self-closing': ['error', {
-        html: {
-          void: 'always',
-          normal: 'always',
-          component: 'always',
-        },
-      }],
-      'vue/max-attributes-per-line': ['error', {
-        singleline: 3,
-        multiline: 1,
-      }],
-      'vue/multi-word-component-names': 'off',
-      'vue/require-default-prop': 'off',
-    },
+  rules: {
+    // General code style rules
+    ...tailwindcss.configs.recommended.rules,
+    'tailwindcss/no-custom-classname': 'off',
+    //  'vue/no-parsing-error': 'off',
+    // Disable the no-custom-classname rule
+
+    // Disable style linting in Vue files
+    // 'vue/style-prop-name-casing': 'off',
+
+    // 'vue/no-unused-properties': ['error', {
+    //   groups: ['props', 'data', 'computed', 'methods', 'setup'],
+    //   ignorePublicMembers: true,
+    // }],
+
+    // Ignore unknown attributes (like @apply) in <style> tags
+    // 'vue/no-unknown-component-in-scope-attribute': 'off',
+    // 'vue/valid-v-bind': 'off',
+
+    // These rules enforce consistent coding styles and formatting
+    'semi': ['error', 'always'], // Require semicolons at the end of statements
+    'quotes': ['error', 'single'], // Use single quotes for strings
+    'indent': ['error', 2], // Use 2 spaces for indentation
+    'comma-dangle': ['error', 'always-multiline'], // Require trailing commas in multiline object/array literals
+    'object-curly-spacing': ['error', 'always'], // Require spaces inside curly braces
+    'array-bracket-spacing': ['error', 'never'], // Disallow spaces inside array brackets
+    'space-before-function-paren': ['error', {
+      anonymous: 'always',
+      named: 'never',
+      asyncArrow: 'always',
+    }], // Consistent spacing before function parentheses
+    'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0 }], // Limit consecutive empty lines
+    'eol-last': ['error', 'always'], // Require newline at the end of files
+
+    // Enforces a specific order of component tags: <script>, then <template>, then <style>
+    'vue/component-tags-order': ['error', {
+      order: ['script', 'template', 'style'],
+    }],
+    // Enforces consistent indentation in <template> (2 spaces)
+    'vue/html-indent': ['error', 2],
+    // Disables the rule that bans certain types in TypeScript
+    '@typescript-eslint/ban-types': 'off',
+    // Controls line breaks before tag's closing brackets
+    'vue/html-closing-bracket-newline': ['error', {
+      singleline: 'never',
+      multiline: 'always',
+    }],
+    // Requires consistent spacing before tag's closing brackets
+    'vue/html-closing-bracket-spacing': 'error',
+    // Disables the rule that warns against using v-html
+    'vue/no-v-html': 'off',
+    // Disables the rule that disallows explicit 'any' types
+    '@typescript-eslint/no-explicit-any': 'off',
+    // Enforces self-closing on HTML elements
+    'vue/html-self-closing': ['error', {
+      html: {
+        void: 'always',
+        normal: 'always',
+        component: 'always',
+      },
+    }],
+    // Limits the maximum number of attributes allowed per line
+    'vue/max-attributes-per-line': ['error', {
+      singleline: 3,
+      multiline: 1,
+    }],
+    // Disables the rule requiring multi-word component names
+    'vue/multi-word-component-names': 'off',
+    // Disables the rule requiring default values for props
+    'vue/require-default-prop': 'off',
+    // Disables the rule disallowing empty object types in TypeScript
+    '@typescript-eslint/no-empty-object-type': 'off',
   },
-  stylistic.configs.customize({
-    indent: 2,
-    quotes: 'single',
-    semi: false,
-    trailingComma: 'es5',
-    arrowParens: 'always',
-    bracketSpacing: true,
-    singleQuote: true,
-    tabWidth: 2,
-    useTabs: false,
-    endOfLine: 'lf',
-    plugins: ['stylistic'],
-    rules: {
-      'stylistic/indent': ['error', 2],
-      'stylistic/no-trailing-spaces': 'error',
-      'stylistic/eol-last': 'error',
-      'stylistic/no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0 }],
-      'stylistic/space-before-function-paren': ['error', 'never'],
-      'stylistic/space-in-parens': ['error', 'never'],
-      'stylistic/object-curly-spacing': ['error', 'always'],
-    },
-  }),
-)
+  ignores: ['.nuxt', 'node_modules'],
+})

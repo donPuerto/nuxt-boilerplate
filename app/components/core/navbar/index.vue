@@ -1,7 +1,6 @@
 <script setup lang="ts" >
 const isDrawerOpen = ref(false)
 const commandPaletteOpen = ref(false)
-const router = useRouter()
 
 const toggleDrawer = () => {
   isDrawerOpen.value = !!isDrawerOpen.value

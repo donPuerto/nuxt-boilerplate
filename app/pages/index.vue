@@ -1,7 +1,7 @@
 <script setup lang="ts" >
 import type JSConfetti from 'js-confetti'
 import { computed, onMounted, ref } from 'vue'
-import { useAppConfig, useHead, useI18n } from '#imports'
+import { useAppConfig, useHead } from '#imports'
 
 // Initialize
 let jsConfetti: JSConfetti | null = null
@@ -12,7 +12,7 @@ const config = useRuntimeConfig().public
 // const baseUrl =  config.site.url
 
 // I18n
-const { t } = useI18n()
+// const { t } = useI18n()
 
 // Head configuration
 const title = ref('Home')
@@ -26,14 +26,6 @@ useHead(() => ({
     { property: 'og:description', content: description.value },
   ],
 }))
-
-// Structured data for SEO
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  'name': 'My Website',
-  // url: baseUrl
-}
 
 // Computed
 const neutral = computed(() => appConfig.ui.colors.neutral)

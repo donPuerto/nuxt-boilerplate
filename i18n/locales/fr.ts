@@ -1,21 +1,4 @@
 export default defineI18nLocale(() => ({
-  welcome: 'Bienvenue',
-  about: 'À propos',
-  contact: 'Contact',
-  home: 'Accueil',
-  navigation: {
-    releases: 'Versions',
-    documentation: 'Documentation',
-    community: 'Communauté',
-    support: 'Support',
-  },
-  common: {
-    learn_more: 'En savoir plus',
-    get_started: 'Commencer',
-    search: 'Rechercher',
-    close: 'Fermer',
-    language: 'Langue',
-  },
   root: {
     title: 'Nuxt Boilerplate',
     description: 'Un modèle moderne et prêt pour la production avec Nuxt 4, Nuxt UI 3 et TailwindCSS. Démarrez votre prochain projet avec les meilleures pratiques et des fonctionnalités puissantes intégrées.',

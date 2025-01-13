@@ -104,20 +104,23 @@ export default defineNuxtConfig({
   },
   i18n: {
     strategy: 'prefix_except_default',
-    defaultLocale: 'en-US',
+    defaultLocale: 'en',
     locales: [
       {
-        code: 'en-US',
+        code: 'en',
+        language: 'en-US',
         name: 'English',
         file: 'en.ts',
       },
       {
-        code: 'de-DE',
+        code: 'de',
+        language: 'de-DE',
         name: 'Deutsch',
         file: 'de.ts',
       },
       {
-        code: 'fr-FR',
+        code: 'fr',
+        language: 'fr-FR',
         name: 'Français',
         file: 'fr.ts',
       },

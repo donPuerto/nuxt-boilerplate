@@ -1,13 +1,8 @@
 {
-  "eslint.useFlatConfig": true,
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
-    "source.organizeImports": "explicit"
+    "source.fixAll.eslint": "explicit"
   },
-  "recommendations": [
-        "dbaeumer.vscode-eslint"
-    ],
   "emmet.includeLanguages": {
     "postcss": "css"
   },
@@ -130,8 +125,5 @@
     "css",
     "scss",
     "postcss"
-  ],
-  "cSpell.words": [
-    "vaul"
   ],
 }
