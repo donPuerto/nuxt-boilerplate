@@ -1,6 +1,6 @@
 <script setup lang="ts" >
 type DisplayMode = 'flag-only' | 'flag-with-label'
-type LocaleCode = 'us' | 'fr' | 'de'
+type LocaleCode = 'en-US' | 'fr-FR' | 'de-DE'
 
 interface Props {
   mode?: DisplayMode
@@ -36,40 +36,22 @@ const selectedLocaleItem = computed(() => {
 
 function getLocaleIcon(code: LocaleCode): string {
   switch (code) {
-    case 'us':
-      return 'i-flag-us-4x3'
-    case 'fr':
-      return 'i-flag-fr-4x3'
-    case 'de':
-      return 'i-flag-de-4x3'
+    case 'en-US':
+      return 'flag:us-4x3'
+    case 'fr-FR':
+      return 'flag:fr-4x3'
+    case 'de-DE':
+      return 'flag:de-4x3'
     default:
-      return 'i-flag-us-4x3'
+      return 'flag:us-4x3'
   }
 }
 
 const switchLanguage = (locale: LocaleItem) => {
-  const fullLocaleCode = getFullLocaleCode(locale.code)
-  const path = switchLocalePath(fullLocaleCode)
+  const path = switchLocalePath(locale.code)
   if (path) {
     navigateTo(path)
     isOpen.value = false
-  }
-}
-
-watch(locale, (newLocale) => {
-  selectedLocale.value = newLocale as LocaleCode
-})
-
-function getFullLocaleCode(code: LocaleCode): 'en-US' | 'fr-FR' | 'de-DE' {
-  switch (code) {
-    case 'us':
-      return 'en-US'
-    case 'fr':
-      return 'fr-FR'
-    case 'de':
-      return 'de-DE'
-    default:
-      return 'en-US'
   }
 }
 </script >

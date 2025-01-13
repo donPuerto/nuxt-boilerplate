@@ -136,7 +136,7 @@ export default defineNuxtConfig({
     },
     provider: 'iconify',
     serverBundle: {
-      collections: ['uil', 'heroicons', 'logos', 'lucide', 'simple-icons', 'mdi', 'logos', 'skill-icons', 'carbon', 'catppuccin'],
+      collections: ['uil', 'heroicons', 'logos', 'lucide', 'simple-icons', 'mdi', 'logos', 'skill-icons', 'carbon', 'catppuccin', 'flag'],
     },
   },
   robots: {

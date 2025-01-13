@@ -52,6 +52,25 @@ export default defineI18nLocale(() => ({
         tailwind: 'Tailwind CSS v4.0.0-beta.8 mit Dark Mode',
         icons: 'Umfangreiche Icon-Bibliothek mit mehreren Sets',
       },
+      core: {
+        title: 'Kernfunktionen',
+        nuxt: 'Nuxt (v3.15.0) • Das intuitive Web-Framework',
+        vue: 'Vue 3 mit Composition API für Skalierbarkeit',
+        typescript: 'TypeScript v5.7.2 für verbesserte Typsicherheit',
+      },
+      seo: {
+        title: 'SEO & Performance',
+        i18n: 'Nuxt i18n v9.0.0-rc.2 für Lokalisierung',
+        sitemap: 'Nuxt Sitemap v7.0.1 für bessere Indexierung',
+        schema: 'Nuxt Schema Org v4.0.4 für Rich Snippets',
+        robots: 'Nuxt Robots v5.1.0 für Crawler-Steuerung',
+      },
+      dev: {
+        title: 'Entwicklererfahrung',
+        eslint: 'ESLint v9.17.0 für Codequalität',
+        pnpm: 'PNPM v9.15.1 für effizientes Paketmanagement',
+        vscode: 'VS Code optimierte Konfiguration',
+      },
     },
   },
 }))
