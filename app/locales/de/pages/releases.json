@@ -1,0 +1,66 @@
+{
+    "title": "Release-Hinweise",
+    "description": "Erleben Sie dieses hochmoderne Nuxt.js-Boilerplate, entwickelt mit den neuesten Technologien und Branchenstandards. Diese Vorlage ermöglicht Entwicklern, moderne, leistungsstarke Webanwendungen mit einer außergewöhnlichen Entwicklungserfahrung zu erstellen.",
+    "versions": [
+        {
+            "version": "1.0.0",
+            "date": "14.01.2025",
+            "title": "Erstveröffentlichung",
+            "description": "Erste stabile Version des Nuxt Boilerplate",
+            "features": [
+                "Moderner Tech-Stack mit Nuxt 4 und Vue 3",
+                "Vollständige TypeScript-Unterstützung",
+                "Dark Mode und Theme-Anpassung",
+                "Internationalisierung (i18n) Unterstützung",
+                "Vorkonfigurierte UI-Komponenten",
+                "SEO-Optimierung",
+                "Leistungsoptimierungen"
+            ],
+            "fixes": [],
+            "breaking": []
+        },
+        {
+            "version": "0.9.0",
+            "date": "10.01.2025",
+            "title": "Beta-Version",
+            "description": "Beta-Version mit implementierten Kernfunktionen",
+            "features": [
+                "Grundlegende Projektstruktur",
+                "Wesentliche UI-Komponenten",
+                "Grundlegendes Routing-Setup",
+                "Entwicklungsumgebungskonfiguration"
+            ],
+            "fixes": [],
+            "breaking": []
+        }
+    ],
+    "latest": "Neueste",
+    "version": "Version 1.0.0",
+    "features": {
+        "ui": {
+            "title": "Modernes UI-Framework",
+            "nuxt_ui": "Nuxt UI (v3.0.0-alpha.10) • Schöne UI-Komponenten",
+            "tailwind": "Tailwind CSS v4.0.0-beta.8 mit Dark Mode",
+            "icons": "Umfangreiche Icon-Bibliothek mit mehreren Sets"
+        },
+        "core": {
+            "title": "Kernfunktionen",
+            "nuxt": "Nuxt (v3.15.0) • Das intuitive Web-Framework",
+            "vue": "Vue 3 mit Composition API für Skalierbarkeit",
+            "typescript": "TypeScript v5.7.2 für verbesserte Typsicherheit"
+        },
+        "seo": {
+            "title": "SEO & Leistung",
+            "i18n": "Nuxt i18n v9.0.0-rc.2 für Lokalisierung",
+            "sitemap": "Nuxt Sitemap v7.0.1 für bessere Indexierung",
+            "schema": "Nuxt Schema v4.0.4 für Rich Snippets",
+            "robots": "Nuxt Robots v5.1.0 für Crawler-Kontrolle"
+        },
+        "dev": {
+            "title": "Entwicklererfahrung",
+            "eslint": "ESLint v9.17.0 für Codequalität",
+            "pnpm": "PNPM v9.15.1 für effizientes Paketmanagement",
+            "vscode": "VS Code optimierte Konfiguration"
+        }
+    }
+}

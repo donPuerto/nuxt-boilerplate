@@ -1,0 +1,66 @@
+{
+    "title": "Notes de Version",
+    "description": "Découvrez ce modèle Nuxt.js de pointe, conçu avec les dernières technologies et les meilleures pratiques de l'industrie. Ce modèle permet aux développeurs de créer des applications web modernes et performantes avec une expérience de développement exceptionnelle.",
+    "versions": [
+        {
+            "version": "1.0.0",
+            "date": "14/01/2025",
+            "title": "Version Initiale",
+            "description": "Première version stable du modèle Nuxt",
+            "features": [
+                "Stack technique moderne avec Nuxt 4 et Vue 3",
+                "Support TypeScript complet",
+                "Mode sombre et personnalisation des thèmes",
+                "Support de l'internationalisation (i18n)",
+                "Composants UI préconfigurés",
+                "Optimisation SEO",
+                "Optimisations de performance"
+            ],
+            "fixes": [],
+            "breaking": []
+        },
+        {
+            "version": "0.9.0",
+            "date": "10/01/2025",
+            "title": "Version Bêta",
+            "description": "Version bêta avec les fonctionnalités de base implémentées",
+            "features": [
+                "Structure de projet de base",
+                "Composants UI essentiels",
+                "Configuration de base du routage",
+                "Configuration de l'environnement de développement"
+            ],
+            "fixes": [],
+            "breaking": []
+        }
+    ],
+    "latest": "Dernière",
+    "version": "Version 1.0.0",
+    "features": {
+        "ui": {
+            "title": "Framework UI Moderne",
+            "nuxt_ui": "Nuxt UI (v3.0.0-alpha.10) • Beaux composants UI",
+            "tailwind": "Tailwind CSS v4.0.0-beta.8 avec mode sombre",
+            "icons": "Bibliothèque d'icônes complète avec plusieurs ensembles"
+        },
+        "core": {
+            "title": "Fonctionnalités Principales",
+            "nuxt": "Nuxt (v3.15.0) • Le Framework Web Intuitif",
+            "vue": "Vue 3 avec l'API de Composition pour l'évolutivité",
+            "typescript": "TypeScript v5.7.2 pour une meilleure sécurité des types"
+        },
+        "seo": {
+            "title": "SEO & Performance",
+            "i18n": "Nuxt i18n v9.0.0-rc.2 pour la localisation",
+            "sitemap": "Nuxt sitemap v7.0.1 pour un meilleur référencement",
+            "schema": "Nuxt Schema v4.0.4 pour les extraits enrichis",
+            "robots": "Nuxt Robots v5.1.0 pour le contrôle des robots"
+        },
+        "dev": {
+            "title": "Expérience Développeur",
+            "eslint": "ESLint v9.17.0 pour la qualité du code",
+            "pnpm": "PNPM v9.15.1 pour la gestion efficace des paquets",
+            "vscode": "Configuration optimisée pour VS Code"
+        }
+    }
+}

@@ -27,7 +27,7 @@ const sections = {
   <div class="container mx-auto px-4 py-8" >
     <div class="space-y-6" >
       <h1 class="text-4xl font-bold mb-6" >
-        {{ t('releases.title') }}
+        {{ t('pages.releases.title') }}
       </h1 >
 
       <div class="grid gap-6" >
@@ -35,23 +35,23 @@ const sections = {
           <template #header >
             <div class="flex justify-between items-center" >
               <h2 class="text-xl font-semibold" >
-                {{ t('releases.version') }}
+                {{ t('pages.releases.version') }}
               </h2 >
               <UBadge color="primary" >
-                {{ t('releases.latest') }}
+                {{ t('pages.releases.latest') }}
               </UBadge >
             </div >
           </template >
 
           <div class="space-y-8" >
             <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed" >
-              {{ t('releases.description') }}
+              {{ t('pages.releases.description') }}
             </p >
 
             <div class="space-y-8" >
               <div v-for="(features, section) in sections" :key="section" class="space-y-4" >
                 <h3 class="font-semibold text-xl" >
-                  {{ t(`releases.features.${section}.title`) }}
+                  {{ t(`pages.releases.features.${section}.title`) }}
                 </h3 >
                 <ul class="space-y-3 text-gray-600 dark:text-gray-400" >
                   <li
@@ -60,7 +60,7 @@ const sections = {
                     class="flex items-start gap-2"
                   >
                     <span class="text-lg" >•</span >
-                    <span >{{ t(`releases.features.${section}.${feature}`) }}</span >
+                    <span >{{ t(`pages.releases.features.${section}.${feature}`) }}</span >
                   </li >
                 </ul >
               </div >

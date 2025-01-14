@@ -16,9 +16,8 @@ interface LocaleItem {
   icon: string
 }
 
-const { locale, locales } = useI18n()
-const switchLocalePath = useSwitchLocalePath()
-
+const { locale, locales, setLocale } = useI18n()
+const router = useRouter()
 const isOpen = ref(false)
 
 const availableLocales = computed(() => {
@@ -47,11 +46,14 @@ function getLocaleIcon(code: LocaleCode): string {
   }
 }
 
-const switchLanguage = (locale: LocaleItem) => {
-  const path = switchLocalePath(locale.code)
-  if (path) {
-    navigateTo(path)
+async function switchLanguage(item: LocaleItem) {
+  try {
+    await setLocale(item.code)
     isOpen.value = false
+    // Force a page refresh to ensure translations are updated
+    window.location.reload()
+  } catch (error) {
+    console.error('Error switching language:', error)
   }
 }
 </script >
@@ -81,15 +83,16 @@ const switchLanguage = (locale: LocaleItem) => {
 
     <div
       v-if="isOpen"
-      class="absolute right-0 z-10 mt-2 origin-top-right bg-gray-100 rounded-md shadow-lg dark:bg-gray-800 ring-1 ring-black ring-opacity-5 focus:outline-none"
+      class="absolute right-0 z-10 mt-2 origin-top-right rounded-md shadow-lg focus:outline-none"
       :class="[props.mode === 'flag-only' ? 'w-16' : 'w-36']"
     >
-      <div class="py-1" >
+      <div class="py-1 bg-white dark:bg-gray-800 rounded-md ring-1 ring-black ring-opacity-5" >
         <button
           v-for="item in availableLocales"
           :key="item.code"
-          class="flex items-center w-full px-3 py-2 text-sm text-gray-900 gap-x-2 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
-          :class="{ 'bg-gray-200 dark:bg-gray-700': selectedLocale === item.code }"
+          type="button"
+          class="flex items-center w-full px-3 py-2 text-sm text-gray-900 gap-x-2 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 transition-colors duration-200"
+          :class="{ 'bg-gray-100 dark:bg-gray-700': selectedLocale === item.code }"
           @click="switchLanguage(item)"
         >
           <UIcon

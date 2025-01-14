@@ -102,27 +102,32 @@ export default defineNuxtConfig({
     },
   },
   i18n: {
-    strategy: 'prefix_except_default',
+    strategy: 'no_prefix',
     defaultLocale: 'en-US',
+    vueI18n: './config/i18n.config.ts',
+    baseUrl: '/',
     locales: [
       {
         code: 'en-US',
         name: 'English',
-        file: 'en.ts',
+        language: 'en-US',
       },
       {
         code: 'de-DE',
         name: 'Deutsch',
-        file: 'de.ts',
+        language: 'de-DE',
       },
       {
         code: 'fr-FR',
         name: 'Français',
-        file: 'fr.ts',
+        language: 'fr-FR',
       },
     ],
-    lazy: true,
-    langDir: 'locales',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root'
+    }
   },
   icon: {
     customCollections: [{
