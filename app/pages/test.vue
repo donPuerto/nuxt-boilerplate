@@ -1,13 +1,20 @@
-<script setup >
+<script setup lang="ts">
+const props = defineProps<{
+  icon: string
+}>()
 
-</script >
+const toast = useToast()
 
-<template >
-  <div >
-    test
-  </div >
-</template >
+function showToast() {
+  toast.add({
+    title: 'Uh oh! Something went wrong.',
+    description: 'There was a problem with your request.',
+    icon: props.icon
+  })
+}
+</script>
 
-<style lang="scss" scoped >
+<template>
+  <UButton label="Show toast" color="neutral" variant="outline" @click="showToast" />
+</template>
 
-</style >

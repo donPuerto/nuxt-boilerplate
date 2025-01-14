@@ -68,25 +68,25 @@ const technologies = ref([
 const features = ref([
   {
     name: 'Modern Stack',
-    icon: 'i-heroicons-outline-cube-transparent',
+    icon: 'i-heroicons-outline:cube-transparent',
     description: 'Built with the latest technologies including Nuxt 4, Vue 3, and TypeScript for a robust development experience.',
     tags: ['Nuxt 4', 'Vue 3', 'TypeScript'],
   },
   {
     name: 'UI Components',
-    icon: 'i-heroicons-outline-squares-2x2',
+    icon: 'i-heroicons-outline:squares-2x2',
     description: 'Powered by Nuxt UI, offering a comprehensive set of ready-to-use components that follow best practices.',
     tags: ['Nuxt UI', 'Components', 'TailwindCSS'],
   },
   {
     name: 'Dark Mode',
-    icon: 'i-heroicons-outline-moon',
+    icon: 'i-heroicons-outline:moon',
     description: 'First-class dark mode support with smooth transitions and system preference detection.',
     tags: ['Theme', 'Color Modes', 'Accessibility'],
   },
   {
     name: 'Type Safe',
-    icon: 'i-heroicons-outline-shield-check',
+    icon: 'i-heroicons-outline:shield-check',
     description: 'Full TypeScript support with auto-generated types and Vue macros for an enhanced development experience.',
     tags: ['TypeScript', 'Type Safety', 'DX'],
   },

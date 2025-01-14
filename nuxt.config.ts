@@ -3,6 +3,7 @@ import { createResolver } from '@nuxt/kit'
 import tailwindcss from '@tailwindcss/vite'
 import { defineNuxtConfig } from 'nuxt/config'
 import pkg from './package.json'
+import headConfig from './config/head.config'
 
 const { resolve } = createResolver(import.meta.url)
 
@@ -21,9 +22,7 @@ export default defineNuxtConfig({
   ],
   devtools: { enabled: true },
   app: {
-    head: {
-      link: [],
-    },
+    head: headConfig,
     rootAttrs: {
       'vaul-drawer-wrapper': '',
       'class': 'bg-[var(--ui-bg)]',
@@ -122,8 +121,8 @@ export default defineNuxtConfig({
         file: 'fr.ts',
       },
     ],
-    // langDir: 'i18n',
     lazy: true,
+    langDir: 'locales',
   },
   icon: {
     customCollections: [{
@@ -142,5 +141,17 @@ export default defineNuxtConfig({
   robots: {
     sitemap: ['/sitemap.xml'],
     robotsEnabledValue: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+  },
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: [
+        '/',
+        '/components',
+        '/roadmap',
+        '/releases',
+      ]
+    },
+   
   },
 })

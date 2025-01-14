@@ -1,6 +1,4 @@
 <script setup lang="ts" >
-import { defineProps, computed } from 'vue'
-
 // Define the NavigationMenuItem type
 type NavigationMenuItem = {
   label: string
