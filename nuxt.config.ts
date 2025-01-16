@@ -21,6 +21,24 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
   ],
   devtools: { enabled: true },
+  alias: {
+    '@': resolve('./'),
+    '~': resolve('./'),
+    'types': resolve('./types')
+  },
+  typescript: {
+    strict: true,
+    typeCheck: true,
+    tsConfig: {
+      compilerOptions: {
+        paths: {
+          "@/*": ["./*"],
+          "~/*": ["./*"],
+          "types/*": ["./types/*"]
+        }
+      }
+    }
+  },
   app: {
     head: headConfig,
     rootAttrs: {

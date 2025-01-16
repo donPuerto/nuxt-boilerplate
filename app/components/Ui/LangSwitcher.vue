@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { LocaleConfig, LangSwitcherProps } from '../../../types'
-import { ALL_LOCALES, getLocaleByCode, getLocalesByRegion } from '~/config/locales'
+import type { LocaleConfig, LangSwitcherProps } from '@/types'
+import { ALL_LOCALES, getLocaleByCode, getLocalesByRegion } from '@/app/config/locales'
 
 type LocaleType = 'en-US' | 'fr-FR' | 'de-DE'
 
