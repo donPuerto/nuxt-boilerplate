@@ -1,5 +1,7 @@
+export type LocaleCode = string
+
 export interface LocaleConfig {
-  code: string          // e.g., 'en-US'
+  code: LocaleCode          // e.g., 'en-US'
   name: string          // e.g., 'English (US)'
   nativeName: string    // e.g., 'English'
   flag: string          // e.g., 'flag:us-4x3'

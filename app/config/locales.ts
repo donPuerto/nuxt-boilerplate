@@ -1,4 +1,4 @@
-import type { LocaleConfig } from '~/types/components/LangSwitcher'
+import type { LocaleConfig } from '../../types'
 
 export const ALL_LOCALES: LocaleConfig[] = [
   // Americas
