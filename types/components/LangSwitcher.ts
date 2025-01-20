@@ -1,14 +1,16 @@
-export type LocaleCode = string
+export type LocaleCode = 'en-US' | 'fr-FR' | 'de-DE'
 
 export interface LocaleConfig {
-  code: LocaleCode          // e.g., 'en-US'
-  name: string          // e.g., 'English (US)'
-  nativeName: string    // e.g., 'English'
-  flag: string          // e.g., 'flag:us-4x3'
-  region: string        // e.g., 'Americas'
-  isRTL?: boolean       // Right-to-left text
-  dateFormat?: string   // Custom date format
-  enabled?: boolean     // Is this locale currently enabled?
+  code: LocaleCode
+  name: string
+  language: string
+  dir?: 'ltr' | 'rtl'
+  nativeName: string
+  flag: string
+  region: string
+  isRTL?: boolean
+  dateFormat?: string
+  enabled?: boolean
 }
 
 export interface LangSwitcherProps {
@@ -19,8 +21,8 @@ export interface LangSwitcherProps {
   searchable?: boolean
   allowAutoDetect?: boolean
   customFlags?: Record<string, string>
-  enabledLocales?: string[]
-  disabledLocales?: string[]
+  enabledLocales?: LocaleCode[]
+  disabledLocales?: LocaleCode[]
   includeRegions?: string[]
   excludeRegions?: string[]
 }

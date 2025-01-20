@@ -1,15 +1,13 @@
 <script setup lang="ts">
-import type { LocaleConfig, LangSwitcherProps } from '@/types'
+import type { LocaleConfig, LangSwitcherProps, LocaleCode } from '@/types'
 import { ALL_LOCALES, getLocaleByCode, getLocalesByRegion } from '@/app/config/locales'
 
-type LocaleType = 'en-US' | 'fr-FR' | 'de-DE'
-
 const props = withDefaults(defineProps<LangSwitcherProps>(), {
-  mode: 'flag-with-label',
-  showNativeNames: false,
+  mode: 'full',
+  showNativeNames: true,
   maxVisible: 5,
   groupByRegion: false,
-  searchable: false,
+  searchable: true,
   allowAutoDetect: true,
   customFlags: () => ({}),
   enabledLocales: () => [],
@@ -66,7 +64,7 @@ const groupedLocales = computed(() => {
 })
 
 const selectedLocale = computed(() => {
-  const currentLocale = locale.value as LocaleType
+  const currentLocale = locale.value as LocaleCode
   return currentLocale ? getLocaleByCode(currentLocale) : null
 })
 
@@ -75,7 +73,7 @@ async function switchLanguage(item: LocaleConfig) {
   if (!item?.code) return
   
   try {
-    const localeCode = item.code as LocaleType
+    const localeCode = item.code as LocaleCode
     await useI18n().setLocale(localeCode)
     isOpen.value = false
     // Force a page refresh to ensure translations are updated
