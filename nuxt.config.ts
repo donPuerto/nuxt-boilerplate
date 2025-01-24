@@ -21,26 +21,6 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
   ],
   devtools: { enabled: true },
-  alias: {
-    '@': resolve('./'),
-    '~': resolve('./'),
-    'types': resolve('./types')
-  },
-  // typescript: {
-  //   strict: true,
-  //   tsConfig: {
-  //     compilerOptions: {
-  //       strict: true,
-  //       skipLibCheck: true,
-  //       types: ['@nuxt/ui', '@nuxt/types'],
-  //       paths: {
-  //         "@/*": ["./*"],
-  //         "~/*": ["./*"],
-  //         "types/*": ["./types/*"]
-  //       }
-  //     }
-  //   }
-  // },
   app: {
     head: headConfig,
     rootAttrs: {
@@ -124,14 +104,13 @@ export default defineNuxtConfig({
   i18n: {
     strategy: 'no_prefix',
     defaultLocale: 'en-US',
-    vueI18n: './app/config/i18n.config.ts',
+    vueI18n: './config/i18n.config.ts',
     baseUrl: '/',
     locales: [
       {
         code: 'en-US',
         name: 'English',
         language: 'en-US',
-        dir: 'ltr',
       },
       {
         code: 'de-DE',
@@ -143,7 +122,12 @@ export default defineNuxtConfig({
         name: 'Français',
         language: 'fr-FR',
       },
-    ]
+    ],
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root'
+    }
   },
   icon: {
     customCollections: [{

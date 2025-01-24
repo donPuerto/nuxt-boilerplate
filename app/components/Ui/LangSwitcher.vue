@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import type { LocaleConfig, LangSwitcherProps, LocaleCode } from '@/types'
-import { ALL_LOCALES, getLocaleByCode, getLocalesByRegion } from '@/app/config/locales'
+import type { LocaleConfig, LangSwitcherProps } from '../../../types'
+import { ALL_LOCALES, getLocaleByCode, getLocalesByRegion } from '~/config/locales'
 
 const props = withDefaults(defineProps<LangSwitcherProps>(), {
-  mode: 'full',
-  showNativeNames: true,
+  mode: 'flag-with-label',
+  showNativeNames: false,
   maxVisible: 5,
   groupByRegion: false,
-  searchable: true,
+  searchable: false,
   allowAutoDetect: true,
   customFlags: () => ({}),
   enabledLocales: () => [],
@@ -16,7 +16,7 @@ const props = withDefaults(defineProps<LangSwitcherProps>(), {
   excludeRegions: () => []
 })
 
-const { locale, locales } = useI18n()
+const { locale, locales, setLocale } = useI18n()
 const router = useRouter()
 const isOpen = ref(false)
 const searchQuery = ref('')
@@ -64,17 +64,13 @@ const groupedLocales = computed(() => {
 })
 
 const selectedLocale = computed(() => {
-  const currentLocale = locale.value as LocaleCode
-  return currentLocale ? getLocaleByCode(currentLocale) : null
+  return getLocaleByCode(locale.value as string)
 })
 
 // Methods
 async function switchLanguage(item: LocaleConfig) {
-  if (!item?.code) return
-  
   try {
-    const localeCode = item.code as LocaleCode
-    await useI18n().setLocale(localeCode)
+    await setLocale(item.code)
     isOpen.value = false
     // Force a page refresh to ensure translations are updated
     window.location.reload()
@@ -97,9 +93,8 @@ const handleKeyboard = (e: KeyboardEvent) => {
         : currentIndex.value - 1
       break
     case 'Enter':
-      const selectedItem = filteredLocales.value[currentIndex.value]
-      if (selectedItem) {
-        switchLanguage(selectedItem)
+      if (filteredLocales.value[currentIndex.value]) {
+        switchLanguage(filteredLocales.value[currentIndex.value])
       }
       break
     case 'Escape':
@@ -131,9 +126,9 @@ onUnmounted(() => {
           class="w-6 h-5"
         />
         <template v-if="props.mode !== 'flag-only'">
-          <span class=" font-medium">{{ selectedLocale.name }}</span>
+          <span class="locale-name">{{ selectedLocale.name }}</span>
           <span v-if="props.showNativeNames && selectedLocale.nativeName !== selectedLocale.name" 
-                class="  ">
+                class="native-name text-sm text-gray-500">
             {{ selectedLocale.nativeName }}
           </span>
         </template>
@@ -165,14 +160,14 @@ onUnmounted(() => {
         <!-- Locale List -->
         <template v-if="props.groupByRegion">
           <div v-for="(locales, region) in groupedLocales" :key="region" class="py-2">
-            <div class="px-3  font-medium   uppercase">
+            <div class="px-3 text-xs font-medium text-gray-500 uppercase">
               {{ region }}
             </div>
             <button
               v-for="item in locales"
               :key="item.code"
               type="button"
-              class="flex items-center w-full px-3 py-2  text-gray-900 dark:text-white gap-x-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+              class="flex items-center w-full px-3 py-2 text-sm text-gray-900 gap-x-2 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 transition-colors duration-200"
               :class="{ 
                 'bg-gray-100 dark:bg-gray-700': selectedLocale?.code === item.code,
                 'cursor-pointer': true,
@@ -187,7 +182,7 @@ onUnmounted(() => {
               <div class="flex flex-col items-start">
                 <span class="font-medium">{{ item.name }}</span>
                 <span v-if="props.showNativeNames && item.nativeName !== item.name" 
-                      class="  ">
+                      class="text-xs text-gray-500">
                   {{ item.nativeName }}
                 </span>
               </div>
@@ -199,7 +194,7 @@ onUnmounted(() => {
             v-for="item in filteredLocales"
             :key="item.code"
             type="button"
-            class="flex items-center w-full px-3 py-2 text-gray-900 dark:text-white gap-x-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+            class="flex items-center w-full px-3 py-2 text-sm text-gray-900 gap-x-2 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 transition-colors duration-200"
             :class="{ 
               'bg-gray-100 dark:bg-gray-700': selectedLocale?.code === item.code,
               'cursor-pointer': true,
@@ -214,7 +209,7 @@ onUnmounted(() => {
             <div class="flex flex-col items-start">
               <span class="font-medium">{{ item.name }}</span>
               <span v-if="props.showNativeNames && item.nativeName !== item.name" 
-                    class="  ">
+                    class="text-xs text-gray-500">
                 {{ item.nativeName }}
               </span>
             </div>
@@ -231,11 +226,11 @@ onUnmounted(() => {
   text-align: right;
 }
 
-/* .locale-name {
-  font-medium;
-} */
+.locale-name {
+  @apply text-sm font-medium;
+}
 
 .native-name {
-  
+  @apply text-xs text-gray-500;
 }
 </style>

@@ -11,6 +11,7 @@ Designed to help you kickstart your next project with:
 - SEO-friendly structure
 - Modern development tools
 - Custom icon system with Iconify integration
+- Vue Motion
 
 Perfect for building:
 - Web Applications
