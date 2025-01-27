@@ -221,16 +221,5 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-.rtl {
-  direction: rtl;
-  text-align: right;
-}
 
-.locale-name {
-  @apply text-sm font-medium;
-}
-
-.native-name {
-  @apply text-xs text-gray-500;
-}
 </style>

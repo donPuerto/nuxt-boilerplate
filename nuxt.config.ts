@@ -35,13 +35,13 @@ export default defineNuxtConfig({
   ],
 
   site: {
-    url: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+    url: process.env.NUXT_PUBLIC_BASE_URL || 'http://localhost:3000',
     name: 'Nuxt Boilerplate',
   },
   runtimeConfig: {
     public: {
       version: pkg.version,
-      baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+      baseUrl: process.env.NUXT_PUBLIC_BASE_URL || 'http://localhost:3000',
       dependencies: {
         vue: pkg.dependencies.vue,
         nuxt: pkg.dependencies.nuxt,
@@ -104,8 +104,8 @@ export default defineNuxtConfig({
   i18n: {
     strategy: 'no_prefix',
     defaultLocale: 'en-US',
-    vueI18n: './config/i18n.config.ts',
-    baseUrl: '/',
+    vueI18n: '~/config/i18n.config.ts',
+    baseUrl: process.env.NUXT_PUBLIC_BASE_URL || 'http://localhost:3000',
     locales: [
       {
         code: 'en-US',

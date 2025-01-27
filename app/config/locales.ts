@@ -1,4 +1,4 @@
-import type { LocaleConfig } from '@/types'
+import type { LocaleConfig } from '../../types'
 
 export const ALL_LOCALES: LocaleConfig[] = [
   {
