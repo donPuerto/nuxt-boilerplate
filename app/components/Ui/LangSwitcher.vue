@@ -92,11 +92,13 @@ const handleKeyboard = (e: KeyboardEvent) => {
         ? filteredLocales.value.length - 1 
         : currentIndex.value - 1
       break
-    case 'Enter':
-      if (filteredLocales.value[currentIndex.value]) {
-        switchLanguage(filteredLocales.value[currentIndex.value])
+    case 'Enter': {
+      const selectedLocale = filteredLocales.value[currentIndex.value]
+      if (selectedLocale) {
+        switchLanguage(selectedLocale)
       }
       break
+    }
     case 'Escape':
       isOpen.value = false
       break
