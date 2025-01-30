@@ -1,10 +1,15 @@
-// import { getIconCollections, iconsPlugin } from '@egoist/tailwindcss-icons'
-
-/** @type {import('tailwindcss').Config} */
+// tailwind.config.js
 module.exports = {
-  plugins: [
-    // iconsPlugin({
-    //   collections: getIconCollections([/** ... */]),
-    // }),
+  content: [
+    './components/**/*.{js,vue,ts}',
+    './layouts/**/*.vue',
+    './pages/**/*.vue',
+    './plugins/**/*.{js,ts}',
+    './nuxt.config.{js,ts}',
+    './node_modules/@nuxt/ui/**/*.{js,ts,vue}',
   ],
-}
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
