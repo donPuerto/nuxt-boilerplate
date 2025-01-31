@@ -7,6 +7,10 @@ import headConfig from './config/head.config'
 
 const { resolve } = createResolver(import.meta.url)
 
+const baseUrl = process.env.NODE_ENV === 'development' 
+  ? 'http://localhost:3000'
+  : process.env.NUXT_PUBLIC_BASE_URL || 'https://your-production-domain.com'
+
 // Define config with proper type
 export default defineNuxtConfig({
   modules: [
@@ -35,13 +39,13 @@ export default defineNuxtConfig({
   ],
 
   site: {
-    url: process.env.NUXT_PUBLIC_BASE_URL,
+    url: baseUrl,
     name: 'Nuxt Boilerplate',
   },
   runtimeConfig: {
     public: {
       version: pkg.version,
-      baseUrl: process.env.NUXT_PUBLIC_BASE_URL,
+      baseUrl,
       dependencies: {
         vue: pkg.dependencies.vue,
         nuxt: pkg.dependencies.nuxt,
@@ -105,7 +109,7 @@ export default defineNuxtConfig({
     strategy: 'no_prefix',
     defaultLocale: 'en-US',
     vueI18n: '~/config/i18n.config.ts',
-    baseUrl: process.env.NUXT_PUBLIC_BASE_URL,
+    baseUrl,
     locales: [
       {
         code: 'en-US',
