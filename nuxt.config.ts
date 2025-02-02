@@ -177,10 +177,15 @@ export default defineNuxtConfig({
       collections: ['uil', 'heroicons', 'logos', 'lucide', 'simple-icons', 'mdi', 'logos', 'skill-icons', 'carbon', 'catppuccin', 'flag'],
     },
   },
-  robots: {
-    sitemap: ['/sitemap.xml'],
-    robotsEnabledValue: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+  routeRules: {
+    '/admin/**': { index: false },
+    '/auth/**': { index: false },
+    '/test/**': { index: false },
+    '/draft/**': { index: false }
   },
+  // sitemap: {
+  //   hostname: process.env.NUXT_PUBLIC_BASE_URL
+  // },
   nitro: {
     prerender: {
       crawlLinks: true,

@@ -1,0 +1,9 @@
+# Allow all bots to access everything
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /auth/
+Disallow: /test/
+Disallow: /draft/
+
+Sitemap: https://your-production-domain.com/sitemap.xml

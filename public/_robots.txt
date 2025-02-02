@@ -1,6 +1,0 @@
-# Allow all bots to access everything
-User-agent: *
-Allow: /
-
-# Reference to sitemap
-Sitemap: /sitemap.xml
