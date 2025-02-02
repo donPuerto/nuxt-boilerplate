@@ -1,4 +1,7 @@
 export default defineAppConfig({
+  site: {
+    name: 'Nuxt 3',
+  },
   toaster: {
     position: 'bottom-right' as const,
     expand: true,

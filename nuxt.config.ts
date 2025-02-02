@@ -68,6 +68,16 @@ export default defineNuxtConfig({
   site: {
     url: process.env.NUXT_PUBLIC_BASE_URL,
     name: 'Nuxt Boilerplate',
+
+    social: {
+      twitter: {
+        handle: process.env.NUXT_PUBLIC_TWITTER_HANDLE,
+        card: 'summary_large_image',
+      },
+      github: process.env.NUXT_PUBLIC_GITHUB_URL,
+      linkedin: process.env.NUXT_PUBLIC_LINKEDIN_URL,
+      portfolio: process.env.NUXT_PUBLIC_PORTFOLIO_URL,
+    }
   },
   runtimeConfig: {
     public: {
