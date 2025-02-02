@@ -66,9 +66,18 @@ export default defineNuxtConfig({
   ],
 
   site: {
+    // Core Info
     url: process.env.NUXT_PUBLIC_BASE_URL,
-    name: 'Nuxt Boilerplate',
+    name: process.env.NUXT_PUBLIC_SITE_NAME,
+    description: process.env.NUXT_PUBLIC_SITE_DESCRIPTION,
+    defaultLocale: process.env.NUXT_PUBLIC_DEFAULT_LOCALE,
 
+    // Visual Elements
+    logo: '/logo.png',
+    ogImage: '/preview-image.png',
+    themeColor: '#ffffff',
+
+    // Social Profiles
     social: {
       twitter: {
         handle: process.env.NUXT_PUBLIC_TWITTER_HANDLE,
@@ -77,12 +86,24 @@ export default defineNuxtConfig({
       github: process.env.NUXT_PUBLIC_GITHUB_URL,
       linkedin: process.env.NUXT_PUBLIC_LINKEDIN_URL,
       portfolio: process.env.NUXT_PUBLIC_PORTFOLIO_URL,
-    }
+    },
+
+    // SEO Settings
+    indexable: true,
+    trailingSlash: false,
+
+    // Performance
+    cacheControl: {
+      static: 'public, max-age=31536000, immutable',
+      swr: 'public, max-age=604800, stale-while-revalidate=86400'
+    },
   },
   runtimeConfig: {
     public: {
+      baseUrl: process.env.NUXT_PUBLIC_BASE_URL,
+      siteName: process.env.NUXT_PUBLIC_SITE_NAME,
+      siteDescription: process.env.NUXT_PUBLIC_SITE_DESCRIPTION,
       version: pkg.version,
-      baseUrl,
       dependencies: {
         vue: pkg.dependencies.vue,
         nuxt: pkg.dependencies.nuxt,

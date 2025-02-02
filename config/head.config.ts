@@ -1,10 +1,11 @@
 const headConfig = {
   // Title Settings
-  title: 'Nuxt Boilerplate',
+  title: process.env.NUXT_PUBLIC_SITE_NAME,
   titleTemplate: `%s | ${process.env.NUXT_PUBLIC_SITE_NAME}`,
 
   // Meta Tags
   meta: [
+    // Basic
     { charset: 'utf-8' },
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     { name: 'description', content: process.env.NUXT_PUBLIC_SITE_DESCRIPTION },
@@ -14,29 +15,39 @@ const headConfig = {
 
     // Open Graph
     { property: 'og:type', content: 'website' },
-    { property: 'og:title', content: `${process.env.NUXT_PUBLIC_SITE_NAME}` },
+    { property: 'og:title', content: process.env.NUXT_PUBLIC_SITE_NAME },
     { property: 'og:description', content: process.env.NUXT_PUBLIC_SITE_DESCRIPTION },
     { property: 'og:image', content: '/preview-image.png' },
-    { property: 'og:image:alt', content: `${process.env.NUXT_PUBLIC_SITE_NAME}` },
+    { property: 'og:image:alt', content: `${process.env.NUXT_PUBLIC_SITE_NAME} Preview` },
     { property: 'og:site_name', content: process.env.NUXT_PUBLIC_SITE_NAME },
-
-    { property: 'og:profile', content: process.env.NUXT_PUBLIC_LINKEDIN_URL },
-    { property: 'og:see_also', content: process.env.NUXT_PUBLIC_PORTFOLIO_URL },
+    { property: 'og:url', content: process.env.NUXT_PUBLIC_BASE_URL },
 
     // Twitter
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: `${process.env.NUXT_PUBLIC_SITE_NAME}` },
+    { name: 'twitter:card', content: process.env.NUXT_PUBLIC_TWITTER_CARD_TYPE },
+    { name: 'twitter:title', content: process.env.NUXT_PUBLIC_SITE_NAME },
     { name: 'twitter:description', content: process.env.NUXT_PUBLIC_SITE_DESCRIPTION },
     { name: 'twitter:image', content: '/preview-image.png' },
-    { name: 'twitter:image:alt', content: `${process.env.NUXT_PUBLIC_SITE_NAME}` },
+    { name: 'twitter:image:alt', content: `${process.env.NUXT_PUBLIC_SITE_NAME} Preview` },
+    { name: 'twitter:site', content: process.env.NUXT_PUBLIC_TWITTER_HANDLE },
+
+    // PWA
+    { name: 'theme-color', content: 'green' },
+    { name: 'msapplication-TileColor', content: 'slate' }
   ],
+
+  // Links
   link: [
+    // Icons
     { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+    { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/android-chrome-192x192.png' },
+    { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/android-chrome-512x512.png' },
+
+     // Manifest
     { rel: 'manifest', href: '/manifest.json' },
-    { rel: 'me', href: process.env.NUXT_PUBLIC_LINKEDIN_URL },
-    { rel: 'me', href: process.env.NUXT_PUBLIC_PORTFOLIO_URL }
   ],
+
+  // Scripts
   script: [
     {
       type: 'application/ld+json',
@@ -52,7 +63,7 @@ const headConfig = {
 
    // HTML Attributes
   htmlAttrs: {
-    lang: 'en',
+    lang: process.env.NUXT_PUBLIC_DEFAULT_LOCALE
   },
 }
 
