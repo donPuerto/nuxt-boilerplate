@@ -24,6 +24,33 @@ export default defineNuxtConfig({
     'nuxt-schema-org',
     '@nuxtjs/i18n',
   ],
+  i18n: {
+    baseUrl: 'https://your-production-domain.com',
+    defaultLocale: 'en-US',
+    vueI18n: '~/config/i18n.config.ts',
+    locales: [
+      {
+        code: 'en-US',
+        name: 'English',
+        language: 'en-US',
+      },
+      {
+        code: 'de-DE',
+        name: 'Deutsch',
+        language: 'de-DE',
+      },
+      {
+        code: 'fr-FR',
+        name: 'Français',
+        language: 'fr-FR',
+      },
+    ],
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root'
+    }
+  },
   devtools: { enabled: true },
   app: {
     head: headConfig,
@@ -39,7 +66,7 @@ export default defineNuxtConfig({
   ],
 
   site: {
-    url: baseUrl,
+    url: process.env.NUXT_PUBLIC_BASE_URL,
     name: 'Nuxt Boilerplate',
   },
   runtimeConfig: {
@@ -104,34 +131,6 @@ export default defineNuxtConfig({
     config: {
       stylistic: true,
     },
-  },
-  i18n: {
-    strategy: 'no_prefix',
-    defaultLocale: 'en-US',
-    vueI18n: '~/config/i18n.config.ts',
-    baseUrl,
-    locales: [
-      {
-        code: 'en-US',
-        name: 'English',
-        language: 'en-US',
-      },
-      {
-        code: 'de-DE',
-        name: 'Deutsch',
-        language: 'de-DE',
-      },
-      {
-        code: 'fr-FR',
-        name: 'Français',
-        language: 'fr-FR',
-      },
-    ],
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
-      redirectOn: 'root'
-    }
   },
   icon: {
     customCollections: [{
