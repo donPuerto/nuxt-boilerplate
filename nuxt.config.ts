@@ -25,7 +25,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
   ],
   i18n: {
-    baseUrl: process.env.NUXT_PUBLIC_BASE_URL,
+    baseUrl: 'https://your-production-domain.com',
     defaultLocale: 'en-US',
     vueI18n: '~/config/i18n.config.ts',
     locales: [
