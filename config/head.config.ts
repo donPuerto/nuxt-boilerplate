@@ -13,6 +13,10 @@ const headConfig = {
     { name: 'author', content: 'Don Puerto' },
     { name: 'robots', content: 'index, follow' },
 
+    // Canonical Tag
+    { rel: 'canonical', href: process.env.NUXT_PUBLIC_BASE_URL },
+
+
     // Open Graph
     { property: 'og:type', content: 'website' },
     { property: 'og:title', content: process.env.NUXT_PUBLIC_SITE_NAME },

@@ -7,9 +7,9 @@ import headConfig from './config/head.config'
 
 const { resolve } = createResolver(import.meta.url)
 
-const baseUrl = process.env.NODE_ENV === 'development' 
-  ? 'http://localhost:3000'
-  : process.env.NUXT_PUBLIC_BASE_URL || 'https://your-production-domain.com'
+// Define base URL from environment variables
+const baseUrl = process.env.NUXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+
 
 // Define config with proper type
 export default defineNuxtConfig({
@@ -25,7 +25,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
   ],
   i18n: {
-    baseUrl: 'https://your-production-domain.com',
+    baseUrl: process.env.NUXT_PUBLIC_BASE_URL,
     defaultLocale: 'en-US',
     vueI18n: '~/config/i18n.config.ts',
     locales: [
