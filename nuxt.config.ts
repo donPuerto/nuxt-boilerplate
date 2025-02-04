@@ -187,6 +187,10 @@ export default defineNuxtConfig({
   //   hostname: process.env.NUXT_PUBLIC_BASE_URL
   // },
   nitro: {
+    compressPublicAssets: {
+      gzip: true,
+      brotli: true  // This will create compressed versions
+    },
     prerender: {
       crawlLinks: true,
       routes: [
