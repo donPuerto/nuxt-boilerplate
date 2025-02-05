@@ -24,7 +24,7 @@ const navigation = [
   {
     label: 'Components',
     suffix: '✨ A Collection of Beautiful Nuxt UI Components',
-    icon: 'i-lucide-layout-template',
+    icon: 'i-custom-components',
     onSelect: () => navigateTo('/components', { replace: true }),
     kbds: ['meta', 'C'],
     active: true,
@@ -32,14 +32,14 @@ const navigation = [
   {
     label: 'Roadmap',
     suffix: '📋 Roadmap Board: Progress and Plans',
-    icon: 'i-carbon:roadmap',
+    icon: 'i-custom-roadmap',
     onSelect: () => navigateTo('/roadmap', { replace: true }),
     kbds: ['meta', 'R'],
   },
   {
     label: 'Releases',
     suffix: '🔥 Release Highlights: New Features & Fixes',
-    icon: 'i-catppuccin:release',
+    icon: 'i-custom-releases',
     onSelect: () => navigateTo('/releases', { replace: true }),
     kbds: ['meta', 'E'],
   },
@@ -80,7 +80,7 @@ const navigation = [
               variant="ghost"
               to="https://github.com/donPuerto/LearnNuxt/tree/main/nuxt-boilerplate"
               target="_blank"
-              icon="i-simple-icons-github"
+              icon="i-custom-github"
               aria-label="GitHub"
             />
           </UTooltip >
@@ -94,7 +94,7 @@ const navigation = [
           >
             <UButton
               size="xl"
-              :icon="isDrawerOpen ? 'i-lucide-x' : 'i-lucide-menu'"
+              :icon="isDrawerOpen ? 'i-custom-x' : 'i-custom-menu'"
               color="primary"
               variant="ghost"
               class="lg:hidden"

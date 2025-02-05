@@ -163,20 +163,58 @@ export default defineNuxtConfig({
       stylistic: true,
     },
   },
-  icon: {
-    customCollections: [{
-      prefix: 'custom',
-      dir: resolve('./app/assets/icons'),
-    }],
-    clientBundle: {
-      scan: true,
-      includeCustomCollections: true,
-    },
-    provider: 'iconify',
-    serverBundle: {
-      collections: ['uil', 'heroicons', 'logos', 'lucide', 'simple-icons', 'mdi', 'logos', 'skill-icons', 'carbon', 'catppuccin', 'flag'],
-    },
+  // Icon Configuration
+icon: {
+  provider: 'iconify',
+
+  // Use local mode for better performance since you have the icons installed
+  mode: 'local',
+
+  customCollections: [{
+    prefix: 'custom',
+    dir: resolve('./app/assets/icons'),
+  }],
+
+  
+  // Server bundle for critical icons
+  serverBundle: {
+    
+    // Externalize icons JSON to improve build performance
+    externalizeIconsJson: true,
+
+    // Specify collections for server-side rendering
+    collections: [
+      'heroicons', 'mdi', 'simple-icons'
+    ]
   },
+
+   // Client Bundle Configuration
+   clientBundle: {
+    // Enable scanning to detect and bundle frequently used icons
+    scan: {
+      // Specify directories to scan
+      globInclude: ['components/**/*.vue', 'pages/**/*.vue'],
+      globExclude: ['node_modules', 'dist', '.nuxt']
+    },
+    // Set a reasonable size limit
+    sizeLimitKb: 256
+  }
+ 
+},
+  // icon: {
+  //   customCollections: [{
+  //     prefix: 'custom',
+  //     dir: resolve('./app/assets/icons'),
+  //   }],
+  //   clientBundle: {
+  //     scan: true,
+  //     includeCustomCollections: true,
+  //   },
+  //   provider: 'iconify',
+  //   serverBundle: {
+  //     collections: ['uil', 'heroicons', 'logos', 'lucide', 'simple-icons', 'mdi', 'logos', 'skill-icons', 'carbon', 'catppuccin', 'flag'],
+  //   },
+  // },
   routeRules: {
     '/admin/**': { index: false },
     '/auth/**': { index: false },
@@ -202,4 +240,15 @@ export default defineNuxtConfig({
     },
    
   },
+   // Build Configuration
+   build: {
+    transpile: ['@iconify/vue'],
+    // Optimize chunks
+    // optimization: {
+    //   splitChunks: {
+    //     chunks: 'all',
+    //     maxSize: 244000
+    //   }
+    // }
+  }
 })

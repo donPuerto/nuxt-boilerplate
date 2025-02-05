@@ -51,7 +51,7 @@ defineShortcuts({
       size="xl"
       color="primary"
       variant="ghost"
-      icon="i-heroicons-magnifying-glass-20-solid"
+      icon="i-custom-search"
       @click="open = true"
     />
 

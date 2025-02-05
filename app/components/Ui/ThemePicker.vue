@@ -63,7 +63,7 @@ const mode = computed({
     <template #default="{ open }" >
       <UButton
         size="xl"
-        icon="i-lucide-swatch-book"
+        icon="i-custom-swatch"
         color="neutral"
         :variant="open ? 'soft' : 'ghost'"
         square
