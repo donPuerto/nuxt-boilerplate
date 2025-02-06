@@ -9,7 +9,7 @@ export const useConfetti = () => {
       jsConfetti = new JSConfettiModule()
     }
     return jsConfetti
-  }
+  };
 
   const showConfetti = async (options?: {
     confettiNumber?: number
@@ -28,9 +28,9 @@ export const useConfetti = () => {
       ],
       confettiNumber: options?.confettiNumber ?? 100,
     })
-  }
+  };
 
   return {
     showConfetti,
   }
-}
+};

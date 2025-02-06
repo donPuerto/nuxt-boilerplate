@@ -1,4 +1,4 @@
-<script setup lang="ts" >
+<script setup lang="ts">
 interface NavigationItem {
   label: string
   icon?: string
@@ -17,7 +17,7 @@ const open = ref(false)
 
 // Transform navigation items to command palette format
 const navigationItems = computed(() => {
-  return props.navigation.map((item) => ({
+  return props.navigation.map(item => ({
     id: item.label,
     label: item.label,
     icon: item.icon,
@@ -25,7 +25,7 @@ const navigationItems = computed(() => {
     shortcuts: item.kbds,
     onSelect: item.onSelect,
   }))
-})
+});
 
 const onSelect = (item: any) => {
   if (item?.onSelect) {
@@ -43,10 +43,10 @@ defineShortcuts({
     },
   },
 })
-</script >
+</script>
 
-<template >
-  <UModal v-model:open="open" :title="'Command Palette'" :description="'Search commands and navigation'" >
+<template>
+  <UModal v-model:open="open" :title="'Command Palette'" :description="'Search commands and navigation'">
     <UButton
       size="xl"
       color="primary"
@@ -55,20 +55,20 @@ defineShortcuts({
       @click="open = true"
     />
 
-    <template #content >
+    <template #content>
       <!-- Dialog Title -->
-      <h2 id="command-palette-title" class="sr-only" >
+      <h2 id="command-palette-title" class="sr-only">
         Command Palette
-      </h2 >
+      </h2>
       <!-- Dialog Description -->
-      <p id="command-palette-description" class="sr-only" >
+      <p id="command-palette-description" class="sr-only">
         Search commands and navigation
-      </p >
+      </p>
       <UCommandPalette
         :groups="[{ id: 'navigation', label: 'Navigation', items: navigationItems }]"
         @update:open="open = $event"
         @select="onSelect"
       />
-    </template >
-  </UModal >
-</template >
+    </template>
+  </UModal>
+</template>

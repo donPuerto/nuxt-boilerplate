@@ -16,7 +16,6 @@ const headConfig = {
     // Canonical Tag
     { rel: 'canonical', href: process.env.NUXT_PUBLIC_BASE_URL },
 
-
     // Open Graph
     { property: 'og:type', content: 'website' },
     { property: 'og:title', content: process.env.NUXT_PUBLIC_SITE_NAME },
@@ -36,7 +35,7 @@ const headConfig = {
 
     // PWA
     { name: 'theme-color', content: 'green' },
-    { name: 'msapplication-TileColor', content: 'slate' }
+    { name: 'msapplication-TileColor', content: 'slate' },
   ],
 
   // Links
@@ -47,7 +46,7 @@ const headConfig = {
     { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/android-chrome-192x192.png' },
     { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/android-chrome-512x512.png' },
 
-     // Manifest
+    // Manifest
     { rel: 'manifest', href: '/manifest.json' },
   ],
 
@@ -65,9 +64,9 @@ const headConfig = {
     },
   ],
 
-   // HTML Attributes
+  // HTML Attributes
   htmlAttrs: {
-    lang: process.env.NUXT_PUBLIC_DEFAULT_LOCALE
+    lang: process.env.NUXT_PUBLIC_DEFAULT_LOCALE,
   },
 }
 

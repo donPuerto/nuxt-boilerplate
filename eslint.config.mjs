@@ -1,14 +1,14 @@
-import tailwindcss from 'eslint-plugin-tailwindcss'
+// import tailwindcss from 'eslint-plugin-tailwindcss'
 import withNuxt from './.nuxt/eslint.config.mjs'
 
 export default withNuxt({
   files: ['**/*.ts', '**/*.tsx', '**/*.vue', '**/*.js'],
   plugins: {
-    tailwindcss,
+    // tailwindcss,
   },
   rules: {
     // General code style rules
-    ...tailwindcss.configs.recommended.rules,
+    // ...tailwindcss.configs.recommended.rules,
     'tailwindcss/no-custom-classname': 'off',
     //  'vue/no-parsing-error': 'off',
     // Disable the no-custom-classname rule

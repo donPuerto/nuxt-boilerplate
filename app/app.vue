@@ -1,18 +1,18 @@
-<script setup lang="ts" >
+<script setup lang="ts">
 import * as locales from '@nuxt/ui/locale'
 
 const { locale } = useI18n()
 
 const currentLocale = computed(() => locales[locale.value as keyof typeof locales])
-</script >
+</script>
 
-<template >
-  <UApp :locale="currentLocale" >
+<template>
+  <UApp :locale="currentLocale">
     <NuxtLoadingIndicator color="#FFF" />
-    <div class="bg-[var(--ui-bg)]" vaul-drawer-wrapper >
-      <NuxtLayout >
+    <div class="bg-[var(--ui-bg)]" vaul-drawer-wrapper>
+      <NuxtLayout>
         <NuxtPage />
-      </NuxtLayout >
-    </div >
-  </UApp >
-</template >
+      </NuxtLayout>
+    </div>
+  </UApp>
+</template>

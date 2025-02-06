@@ -1,10 +1,10 @@
-<script setup lang="ts" >
+<script setup lang="ts">
 const isDrawerOpen = ref(false)
 const commandPaletteOpen = ref(false)
 
 const toggleDrawer = () => {
   isDrawerOpen.value = !!isDrawerOpen.value
-}
+};
 
 defineShortcuts({
   meta_g: () => {
@@ -44,36 +44,36 @@ const navigation = [
     kbds: ['meta', 'E'],
   },
 ]
-</script >
+</script>
 
-<template >
-  <nav class="border-b border-gray-200 dark:border-gray-800" >
-    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8" >
-      <div class="flex items-center justify-between h-16" >
+<template>
+  <nav class="border-b border-gray-200 dark:border-gray-800">
+    <div class="px-0 mx-auto max-w-7xl">
+      <div class="flex items-center justify-between h-16">
         <!-- Left side: Logo and Title -->
-        <div class="flex items-center" >
-          <NuxtLink to="/" class="flex items-center gap-2 font-bold text-xl text-[var(--ui-text-highlighted)] min-w-0 focus-visible:outline-[var(--ui-primary)] shrink-0" aria-label="Nuxt UI" >
+        <div class="flex items-center">
+          <NuxtLink to="/" class="flex items-center gap-2 font-bold text-xl text-[var(--ui-text-highlighted)] min-w-0 focus-visible:outline-[var(--ui-primary)] shrink-0" aria-label="Nuxt UI">
             <UIcon
               name="i-custom-logo"
               class="w-auto size-10 text-[var(--ui-color-primary)] dark:text-[var(--ui-color-primary-400)]"
             />
-            <span class="hidden text-lg font-bold tracking-tight text-gray-900 lg:block dark:text-white" >
-              Nuxt <span class="text-[var(--ui-primary)]" >Boilerplate</span >
-            </span >
-          </NuxtLink >
-        </div >
+            <span class="hidden text-lg font-bold tracking-tight text-gray-900 lg:block dark:text-white">
+              Nuxt <span class="text-[var(--ui-primary)]">Boilerplate</span>
+            </span>
+          </NuxtLink>
+        </div>
 
         <!-- Middle: Navigation -->
-        <div class="items-center hidden space-x-8 md:flex" >
+        <div class="items-center hidden space-x-8 md:flex">
           <UiNavigationMenu :navigation="navigation" />
-        </div >
+        </div>
 
         <!-- Right side: Icons -->
-        <div class="flex items-center space-x-2" >
+        <div class="flex items-center space-x-2">
           <UiThemePicker />
           <UiCommandPalette :navigation="navigation" />
 
-          <UTooltip text="Open on GitHub" :kbds="['meta', 'G']" class="hidden lg:flex" >
+          <UTooltip text="Open on GitHub" :kbds="['meta', 'G']" class="hidden lg:flex">
             <UButton
               color="primary"
               size="xl"
@@ -83,7 +83,7 @@ const navigation = [
               icon="i-custom-github"
               aria-label="GitHub"
             />
-          </UTooltip >
+          </UTooltip>
           <UiLangSwitcher mode="flag-only" />
           <UDrawer
             v-model:open="isDrawerOpen"
@@ -94,7 +94,7 @@ const navigation = [
           >
             <UButton
               size="xl"
-              :icon="isDrawerOpen ? 'i-custom-x' : 'i-custom-menu'"
+              :icon="isDrawerOpen ? 'i-custom-close' : 'i-custom-menu'"
               color="primary"
               variant="ghost"
               class="lg:hidden"
@@ -102,8 +102,8 @@ const navigation = [
               @click="toggleDrawer"
             />
 
-            <template #body >
-              <div class="h-64" >
+            <template #body>
+              <div class="h-64">
                 <UNavigationMenu
                   orientation="vertical"
                   color="primary"
@@ -112,11 +112,11 @@ const navigation = [
                   :items="navigation"
                   class="justify-center"
                 />
-              </div >
-            </template >
-          </UDrawer >
-        </div >
-      </div >
-    </div >
-  </nav >
-</template >
+              </div>
+            </template>
+          </UDrawer>
+        </div>
+      </div>
+    </div>
+  </nav>
+</template>

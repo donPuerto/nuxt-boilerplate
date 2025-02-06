@@ -9,7 +9,7 @@ export interface Release {
   title: string
   description: string
   features: ReleaseFeature[]
-}export interface ReleaseFeature {
+} export interface ReleaseFeature {
   title: string
   description: string
 }
@@ -20,7 +20,7 @@ export interface Release {
   title: string
   description: string
   features: ReleaseFeature[]
-}export interface ReleaseFeature {
+} export interface ReleaseFeature {
   title: string
   description: string
 }
@@ -31,7 +31,7 @@ export interface Release {
   title: string
   description: string
   features: ReleaseFeature[]
-}export interface ReleaseFeature {
+} export interface ReleaseFeature {
   title: string
   description: string
 }
@@ -42,7 +42,7 @@ export interface Release {
   title: string
   description: string
   features: ReleaseFeature[]
-}export interface ReleaseFeature {
+} export interface ReleaseFeature {
   title: string
   description: string
 }

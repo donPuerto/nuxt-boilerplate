@@ -13,7 +13,7 @@ const props = withDefaults(defineProps<LangSwitcherProps>(), {
   enabledLocales: () => [],
   disabledLocales: () => [],
   includeRegions: () => [],
-  excludeRegions: () => []
+  excludeRegions: () => [],
 })
 
 const { locale, locales, setLocale } = useI18n()
@@ -29,7 +29,8 @@ const filteredLocales = computed(() => {
   // Filter by enabled/disabled status
   if (props.enabledLocales.length > 0) {
     filtered = filtered.filter(l => props.enabledLocales.includes(l.code))
-  } else {
+  }
+  else {
     filtered = filtered.filter(l => l.enabled || !props.disabledLocales.includes(l.code))
   }
 
@@ -44,14 +45,14 @@ const filteredLocales = computed(() => {
   // Filter by search query
   if (searchQuery.value) {
     const query = searchQuery.value.toLowerCase()
-    filtered = filtered.filter(l => 
-      l.name.toLowerCase().includes(query) || 
-      l.nativeName.toLowerCase().includes(query)
-    )
+    filtered = filtered.filter(l =>
+      l.name.toLowerCase().includes(query)
+      || l.nativeName.toLowerCase().includes(query),
+    );
   }
 
   return filtered
-})
+});
 
 const groupedLocales = computed(() => {
   if (!props.groupByRegion) return { All: filteredLocales.value }
@@ -61,11 +62,11 @@ const groupedLocales = computed(() => {
     acc[region].push(locale)
     return acc
   }, {} as Record<string, LocaleConfig[]>)
-})
+});
 
 const selectedLocale = computed(() => {
   return getLocaleByCode(locale.value as string)
-})
+});
 
 // Methods
 async function switchLanguage(item: LocaleConfig) {
@@ -74,7 +75,8 @@ async function switchLanguage(item: LocaleConfig) {
     isOpen.value = false
     // Force a page refresh to ensure translations are updated
     window.location.reload()
-  } catch (error) {
+  }
+  catch (error) {
     console.error('Error switching language:', error)
   }
 }
@@ -82,36 +84,36 @@ async function switchLanguage(item: LocaleConfig) {
 // Keyboard navigation
 const handleKeyboard = (e: KeyboardEvent) => {
   if (!isOpen.value) return
-  
-  switch(e.key) {
+
+  switch (e.key) {
     case 'ArrowDown':
       currentIndex.value = (currentIndex.value + 1) % filteredLocales.value.length
-      break
+    break;
     case 'ArrowUp':
-      currentIndex.value = currentIndex.value - 1 < 0 
-        ? filteredLocales.value.length - 1 
+      currentIndex.value = currentIndex.value - 1 < 0
+        ? filteredLocales.value.length - 1
         : currentIndex.value - 1
-      break
+    break;
     case 'Enter': {
       const selectedLocale = filteredLocales.value[currentIndex.value]
-      if (selectedLocale) {
+    if (selectedLocale) {
         switchLanguage(selectedLocale)
-      }
-      break
+    }
+      break;
     }
     case 'Escape':
       isOpen.value = false
-      break
+    break;
   }
 }
 
 onMounted(() => {
   window.addEventListener('keydown', handleKeyboard)
-})
+});
 
 onUnmounted(() => {
   window.removeEventListener('keydown', handleKeyboard)
-})
+});
 </script>
 
 <template>
@@ -129,8 +131,10 @@ onUnmounted(() => {
         />
         <template v-if="props.mode !== 'flag-only'">
           <span class="locale-name">{{ selectedLocale.name }}</span>
-          <span v-if="props.showNativeNames && selectedLocale.nativeName !== selectedLocale.name" 
-                class="native-name text-sm text-gray-500">
+          <span
+            v-if="props.showNativeNames && selectedLocale.nativeName !== selectedLocale.name"
+            class="native-name text-sm text-gray-500"
+          >
             {{ selectedLocale.nativeName }}
           </span>
         </template>
@@ -149,8 +153,10 @@ onUnmounted(() => {
     >
       <div class="py-1 bg-white dark:bg-gray-800 rounded-md ring-1 ring-black ring-opacity-5">
         <!-- Search -->
-        <div v-if="props.searchable && filteredLocales.length > props.maxVisible" 
-             class="px-3 py-2 border-b border-gray-200 dark:border-gray-700">
+        <div
+          v-if="props.searchable && filteredLocales.length > props.maxVisible"
+          class="px-3 py-2 border-b border-gray-200 dark:border-gray-700"
+        >
           <UInput
             v-model="searchQuery"
             icon="i-heroicons-magnifying-glass"
@@ -170,10 +176,10 @@ onUnmounted(() => {
               :key="item.code"
               type="button"
               class="flex items-center w-full px-3 py-2 text-sm text-gray-900 gap-x-2 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 transition-colors duration-200"
-              :class="{ 
+              :class="{
                 'bg-gray-100 dark:bg-gray-700': selectedLocale?.code === item.code,
                 'cursor-pointer': true,
-                'rtl': item.isRTL
+                'rtl': item.isRTL,
               }"
               @click="switchLanguage(item)"
             >
@@ -183,8 +189,10 @@ onUnmounted(() => {
               />
               <div class="flex flex-col items-start">
                 <span class="font-medium">{{ item.name }}</span>
-                <span v-if="props.showNativeNames && item.nativeName !== item.name" 
-                      class="text-xs text-gray-500">
+                <span
+                  v-if="props.showNativeNames && item.nativeName !== item.name"
+                  class="text-xs text-gray-500"
+                >
                   {{ item.nativeName }}
                 </span>
               </div>
@@ -197,10 +205,10 @@ onUnmounted(() => {
             :key="item.code"
             type="button"
             class="flex items-center w-full px-3 py-2 text-sm text-gray-900 gap-x-2 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 transition-colors duration-200"
-            :class="{ 
+            :class="{
               'bg-gray-100 dark:bg-gray-700': selectedLocale?.code === item.code,
               'cursor-pointer': true,
-              'rtl': item.isRTL
+              'rtl': item.isRTL,
             }"
             @click="switchLanguage(item)"
           >
@@ -210,8 +218,10 @@ onUnmounted(() => {
             />
             <div class="flex flex-col items-start">
               <span class="font-medium">{{ item.name }}</span>
-              <span v-if="props.showNativeNames && item.nativeName !== item.name" 
-                    class="text-xs text-gray-500">
+              <span
+                v-if="props.showNativeNames && item.nativeName !== item.name"
+                class="text-xs text-gray-500"
+              >
                 {{ item.nativeName }}
               </span>
             </div>

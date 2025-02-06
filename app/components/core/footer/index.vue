@@ -1,4 +1,4 @@
-<script setup lang="ts" >
+<script setup lang="ts">
 const socials = [
   {
     name: 'Twitter',
@@ -16,31 +16,31 @@ const socials = [
     url: 'https://github.com/donPuerto/LearnNuxt/tree/main/nuxt-boilerplate',
   },
 ]
-</script >
+</script>
 
-<template >
-  <footer class="border-t border-gray-200 dark:border-gray-800" >
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" >
-      <div class="py-12 flex flex-col items-center gap-8" >
+<template>
+  <footer class="border-t border-gray-200 dark:border-gray-800">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="py-12 flex flex-col items-center gap-8">
         <!-- Logo -->
-        <div class="flex justify-center" >
+        <div class="flex justify-center">
           <UIcon
             color="primary"
             name="i-custom-logo"
             size="32"
             class="text-primary-500 dark:text-primary-400 transition-all duration-300 hover:scale-110 hover:animate-pulse sm:size-36 md:size-40 lg:size-44"
           />
-        </div >
+        </div>
 
         <!-- Copyright -->
-        <div class="text-center" >
-          <p class="text-base sm:text-lg md:text-xl text-gray-500 dark:text-gray-400" >
+        <div class="text-center">
+          <p class="text-base sm:text-lg md:text-xl text-gray-500 dark:text-gray-400">
             {{ new Date().getFullYear() }} Nuxt Boilerplate. All rights reserved.
-          </p >
-        </div >
+          </p>
+        </div>
 
         <!-- Social Links -->
-        <div class="flex items-center gap-4 sm:gap-6 md:gap-8" >
+        <div class="flex items-center gap-4 sm:gap-6 md:gap-8">
           <a
             v-for="social in socials"
             :key="social.name"
@@ -54,14 +54,14 @@ const socials = [
               :size="22"
               class="sm:text-3xl md:text-4xl"
             />
-          </a >
-        </div >
+          </a>
+        </div>
 
         <!-- Description -->
-        <p class="text-center text-sm sm:text-base md:text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto px-4" >
+        <p class="text-center text-sm sm:text-base md:text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto px-4">
           A modern and feature-rich boilerplate built with Nuxt 4, enhanced by Nuxt UI 3, and powered by TailwindCSS. Perfect for building scalable, performant, and beautiful web applications.
-        </p >
-      </div >
-    </div >
-  </footer >
-</template >
+        </p>
+      </div>
+    </div>
+  </footer>
+</template>

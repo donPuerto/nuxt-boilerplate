@@ -1,4 +1,4 @@
-<script setup lang="ts" >
+<script setup lang="ts">
 // I18n
 const { t } = useI18n()
 
@@ -14,14 +14,14 @@ useHead(() => ({
     { property: 'og:description', content: description.value },
   ],
 }))
-</script >
+</script>
 
-<template >
-  <div >
+<template>
+  <div>
     Components
-  </div >
-</template >
+  </div>
+</template>
 
-<style >
+<style>
 
-</style >
+</style>

@@ -13,14 +13,14 @@ import * as frComponents from './fr/components'
 export const messages = {
   'en-US': {
     pages: enPages,
-    components: enComponents
+    components: enComponents,
   },
   'de-DE': {
     pages: dePages,
-    components: deComponents
+    components: deComponents,
   },
   'fr-FR': {
     pages: frPages,
-    components: frComponents
-  }
+    components: frComponents,
+  },
 }

@@ -8,7 +8,7 @@ export const ALL_LOCALES: LocaleConfig[] = [
     dir: 'ltr',
     nativeName: 'English',
     flag: 'flag:us-4x3',
-    region: 'Americas'
+    region: 'Americas',
   },
   {
     code: 'fr-FR',
@@ -17,7 +17,7 @@ export const ALL_LOCALES: LocaleConfig[] = [
     dir: 'ltr',
     nativeName: 'Français',
     flag: 'flag:fr-4x3',
-    region: 'Europe'
+    region: 'Europe',
   },
   {
     code: 'de-DE',
@@ -26,23 +26,23 @@ export const ALL_LOCALES: LocaleConfig[] = [
     dir: 'ltr',
     nativeName: 'Deutsch',
     flag: 'flag:de-4x3',
-    region: 'Europe'
-  }
-]
+    region: 'Europe',
+  },
+];
 
 // Helper functions
 export const getLocaleByCode = (code: string): LocaleConfig | undefined => {
   return ALL_LOCALES.find(locale => locale.code === code)
-}
+};
 
 export const getEnabledLocales = (): LocaleConfig[] => {
   return ALL_LOCALES
-}
+};
 
 export const getLocalesByRegion = (region: string): LocaleConfig[] => {
   return ALL_LOCALES.filter(locale => locale.region === region)
-}
+};
 
 export const getAllRegions = (): string[] => {
   return [...new Set(ALL_LOCALES.map(locale => locale.region))]
-}
+};

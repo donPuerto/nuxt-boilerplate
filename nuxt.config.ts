@@ -3,12 +3,12 @@ import { createResolver } from '@nuxt/kit'
 import tailwindcss from '@tailwindcss/vite'
 import { defineNuxtConfig } from 'nuxt/config'
 import pkg from './package.json'
-import headConfig from './config/head.config'
+import headConfig from './config/head.config';
+
 const { resolve } = createResolver(import.meta.url)
 
 // Define base URL from environment variables
-const baseUrl = process.env.NUXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-
+// const baseUrl = process.env.NUXT_PUBLIC_BASE_URL || 'http://localhost:3000';
 
 // Define config with proper type
 export default defineNuxtConfig({
@@ -22,34 +22,8 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
     'nuxt-schema-org',
     '@nuxtjs/i18n',
+    'motion-v/nuxt',
   ],
-  i18n: {
-    baseUrl: 'https://your-production-domain.com',
-    defaultLocale: 'en-US',
-    vueI18n: '~/config/i18n.config.ts',
-    locales: [
-      {
-        code: 'en-US',
-        name: 'English',
-        language: 'en-US',
-      },
-      {
-        code: 'de-DE',
-        name: 'Deutsch',
-        language: 'de-DE',
-      },
-      {
-        code: 'fr-FR',
-        name: 'Français',
-        language: 'fr-FR',
-      },
-    ],
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
-      redirectOn: 'root'
-    }
-  },
   devtools: { enabled: true },
   app: {
     head: headConfig,
@@ -94,7 +68,7 @@ export default defineNuxtConfig({
     // Performance
     cacheControl: {
       static: 'public, max-age=31536000, immutable',
-      swr: 'public, max-age=604800, stale-while-revalidate=86400'
+      swr: 'public, max-age=604800, stale-while-revalidate=86400',
     },
   },
   runtimeConfig: {
@@ -113,6 +87,37 @@ export default defineNuxtConfig({
         tailwind: pkg.devDependencies.tailwindcss,
       },
     },
+  },
+  // Build Configuration
+  build: {
+    transpile: ['@iconify/vue'],
+    // Optimize chunks
+    // optimization: {
+    //   splitChunks: {
+    //     chunks: 'all',
+    //     maxSize: 244000
+    //   }
+    // }
+  },
+  // icon: {
+  //   customCollections: [{
+  //     prefix: 'custom',
+  //     dir: resolve('./app/assets/icons'),
+  //   }],
+  //   clientBundle: {
+  //     scan: true,
+  //     includeCustomCollections: true,
+  //   },
+  //   provider: 'iconify',
+  //   serverBundle: {
+  //     collections: ['uil', 'heroicons', 'logos', 'lucide', 'simple-icons', 'mdi', 'logos', 'skill-icons', 'carbon', 'catppuccin', 'flag'],
+  //   },
+  // },
+  routeRules: {
+    '/admin/**': { index: false },
+    '/auth/**': { index: false },
+    '/test/**': { index: false },
+    '/draft/**': { index: false },
   },
   future: {
     compatibilityVersion: 4,
@@ -147,6 +152,25 @@ export default defineNuxtConfig({
   //   }
   // }
   compatibilityDate: '2025-01-09',
+  // sitemap: {
+  //   hostname: process.env.NUXT_PUBLIC_BASE_URL
+  // },
+  nitro: {
+    compressPublicAssets: {
+      gzip: true,
+      brotli: true, // This will create compressed versions
+    },
+    prerender: {
+      crawlLinks: true,
+      routes: [
+        '/',
+        '/components',
+        '/roadmap',
+        '/releases',
+      ],
+    },
+
+  },
   vite: {
     plugins: [
       tailwindcss(),
@@ -163,92 +187,66 @@ export default defineNuxtConfig({
       stylistic: true,
     },
   },
+  i18n: {
+    baseUrl: 'https://your-production-domain.com',
+    defaultLocale: 'en-US',
+    vueI18n: '~/config/i18n.config.ts',
+    locales: [
+      {
+        code: 'en-US',
+        name: 'English',
+        language: 'en-US',
+      },
+      {
+        code: 'de-DE',
+        name: 'Deutsch',
+        language: 'de-DE',
+      },
+      {
+        code: 'fr-FR',
+        name: 'Français',
+        language: 'fr-FR',
+      },
+    ],
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',
+    },
+  },
   // Icon Configuration
-icon: {
-  provider: 'iconify',
+  icon: {
+    provider: 'iconify',
 
-  // Use local mode for better performance since you have the icons installed
-  mode: 'local',
+    // Use local mode for better performance since you have the icons installed
+    mode: 'local',
 
-  customCollections: [{
-    prefix: 'custom',
-    dir: resolve('./app/assets/icons'),
-  }],
+    customCollections: [{
+      prefix: 'custom',
+      dir: resolve('./app/assets/icons'),
+    }],
 
-  
-  // Server bundle for critical icons
-  serverBundle: {
-    
-    // Externalize icons JSON to improve build performance
-    externalizeIconsJson: true,
+    // Server bundle for critical icons
+    serverBundle: {
 
-    // Specify collections for server-side rendering
-    collections: [
-      // 'heroicons', 'mdi', 'simple-icons'
-    ]
-  },
+      // Externalize icons JSON to improve build performance
+      externalizeIconsJson: true,
 
-   // Client Bundle Configuration
-  //  clientBundle: {
-  //   // Enable scanning to detect and bundle frequently used icons
-  //   scan: {
-  //     // Specify directories to scan
-  //     globInclude: ['components/**/*.vue', 'pages/**/*.vue'],
-  //     globExclude: ['node_modules', 'dist', '.nuxt']
-  //   },
-  //   // Set a reasonable size limit
-  //   sizeLimitKb: 256
-  // }
- 
-},
-  // icon: {
-  //   customCollections: [{
-  //     prefix: 'custom',
-  //     dir: resolve('./app/assets/icons'),
-  //   }],
-  //   clientBundle: {
-  //     scan: true,
-  //     includeCustomCollections: true,
-  //   },
-  //   provider: 'iconify',
-  //   serverBundle: {
-  //     collections: ['uil', 'heroicons', 'logos', 'lucide', 'simple-icons', 'mdi', 'logos', 'skill-icons', 'carbon', 'catppuccin', 'flag'],
-  //   },
-  // },
-  routeRules: {
-    '/admin/**': { index: false },
-    '/auth/**': { index: false },
-    '/test/**': { index: false },
-    '/draft/**': { index: false }
-  },
-  // sitemap: {
-  //   hostname: process.env.NUXT_PUBLIC_BASE_URL
-  // },
-  nitro: {
-    compressPublicAssets: {
-      gzip: true,
-      brotli: true  // This will create compressed versions
+      // Specify collections for server-side rendering
+      collections: ['flag'],
     },
-    prerender: {
-      crawlLinks: true,
-      routes: [
-        '/',
-        '/components',
-        '/roadmap',
-        '/releases',
-      ]
+
+    // Client Bundle Configuration
+    clientBundle: {
+      // Enable scanning to detect and bundle frequently used icons
+      scan: {
+        // Specify directories to scan
+        globInclude: ['components/**/*.vue', 'pages/**/*.vue'],
+        globExclude: ['node_modules', 'dist', '.nuxt'],
+      },
+      // Set a reasonable size limit
+      sizeLimitKb: 256,
     },
-   
+
   },
-   // Build Configuration
-   build: {
-    transpile: ['@iconify/vue'],
-    // Optimize chunks
-    // optimization: {
-    //   splitChunks: {
-    //     chunks: 'all',
-    //     maxSize: 244000
-    //   }
-    // }
-  }
 })
