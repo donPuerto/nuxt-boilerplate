@@ -7,8 +7,8 @@ const isDark = computed(() => useColorMode().value == 'dark');
     <!-- Inspira UI Particles Background -->
     <UiParticlesBg
       class="fixed inset-0 z-0"
-      :quantity="100"
-      :ease="100"
+      :quantity="400"
+      :ease="400"
       :color="isDark ? '#FFF' : '#000'"
       :staticity="10"
       refresh
