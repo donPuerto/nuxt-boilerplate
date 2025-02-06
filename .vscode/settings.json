@@ -95,8 +95,11 @@
     "*.css": "tailwindcss",
   },
   "editor.quickSuggestions": {
-    "strings": true,
+    "strings": "on",
     "comments": "on"
+  },
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "html"
   },
   "tailwindCSS.experimental.classRegex": [
     [
