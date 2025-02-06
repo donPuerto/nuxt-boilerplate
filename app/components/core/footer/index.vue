@@ -2,17 +2,17 @@
 const socials = [
   {
     name: 'Twitter',
-    icon: 'i-simple-icons-twitter',
+    icon: 'i-custom-x',
     url: 'https://x.com/donpuerto_',
   },
   {
     name: 'LinkedIn',
-    icon: 'i-simple-icons-linkedin',
+    icon: 'i-custom-linkedin',
     url: 'https://www.linkedin.com/in/don-puerto-58a26295/',
   },
   {
     name: 'GitHub',
-    icon: 'i-simple-icons-github',
+    icon: 'i-custom-github',
     url: 'https://github.com/donPuerto/LearnNuxt/tree/main/nuxt-boilerplate',
   },
 ]

@@ -34,32 +34,32 @@ const neutral = computed(() => appConfig.ui.colors.neutral)
 const technologies = ref([
   {
     name: 'Vue',
-    icon: 'i-logos-vue',
+    icon: 'i-custom-vue',
     version: config.dependencies.vue,
     color: 'emerald',
   },
   {
     name: 'Nuxt',
-    icon: 'i-logos-nuxt-icon',
+    icon: 'i-custom-nuxt',
     version: config.dependencies.nuxt,
     color: 'primary',
   },
   {
     name: 'TypeScript',
-    icon: 'i-logos-typescript-icon',
+    icon: 'i-custom-typescript',
     version: config.devDependencies.typescript,
     color: 'blue',
   },
   {
-    name: 'Vite',
-    icon: 'i-logos-vitejs',
-    version: '5.0.0',
+    name: 'Nuxt UI',
+    icon: 'i-custom-nuxtui',
+    version: config.dependencies.nuxtUI,
     color: 'yellow',
   },
   {
     name: 'Tailwind',
-    icon: 'i-logos-tailwindcss-icon',
-    version: '4.0.0-beta.8',
+    icon: 'i-custom-tailwindcss',
+    version: config.devDependencies.tailwind,
     color: 'cyan',
   },
 ])
@@ -68,25 +68,25 @@ const technologies = ref([
 const features = ref([
   {
     name: 'Modern Stack',
-    icon: 'i-heroicons-outline:cube-transparent',
+    icon: 'i-custom-cube',
     description: 'Built with the latest technologies including Nuxt 4, Vue 3, and TypeScript for a robust development experience.',
     tags: ['Nuxt 4', 'Vue 3', 'TypeScript'],
   },
   {
     name: 'UI Components',
-    icon: 'i-heroicons-outline:squares-2x2',
+    icon: 'i-custom-square',
     description: 'Powered by Nuxt UI, offering a comprehensive set of ready-to-use components that follow best practices.',
     tags: ['Nuxt UI', 'Components', 'TailwindCSS'],
   },
   {
     name: 'Dark Mode',
-    icon: 'i-heroicons-outline:moon',
+    icon: 'i-custom-moon',
     description: 'First-class dark mode support with smooth transitions and system preference detection.',
     tags: ['Theme', 'Color Modes', 'Accessibility'],
   },
   {
     name: 'Type Safe',
-    icon: 'i-heroicons-outline:shield-check',
+    icon: 'i-custom-shield',
     description: 'Full TypeScript support with auto-generated types and Vue macros for an enhanced development experience.',
     tags: ['TypeScript', 'Type Safety', 'DX'],
   },
@@ -226,7 +226,7 @@ const handleStatClick = async () => {
                     variant="solid"
                     size="xl"
                     class="w-full sm:w-auto"
-                    trailing-icon="i-lucide-arrow-right"
+                    trailing-icon="i-custom-arrow-right"
                   >
                     Get Started
                   </UButton >
@@ -238,8 +238,8 @@ const handleStatClick = async () => {
                     variant="outline"
                     size="xl"
                     class="w-full sm:w-auto"
-                    leading-icon="i-simple-icons-github"
-                    trailing-icon="i-lucide-external-link"
+                    leading-icon="i-custom-github"
+                    trailing-icon="i-custom-external-link"
                   >
                     GitHub
                   </UButton >
@@ -260,6 +260,7 @@ const handleStatClick = async () => {
                       class="flex flex-col items-center cursor-pointer group"
                       @click="handleStatClick"
                     >
+                      
                       <div class="flex size-24 sm:size-28 transform items-center justify-center rounded-[var(--ui-radius)] bg-[var(--ui-color-primary)] p-5 sm:p-6 shadow-lg ring-1 ring-[var(--ui-color-primary-200)] transition duration-300 ease-out group-hover:scale-110 group-hover:bg-[var(--ui-color-primary-100)] group-hover:shadow-xl dark:bg-[var(--ui-color-primary-950)] dark:ring-[var(--ui-color-primary-800)] dark:group-hover:bg-[var(--ui-color-primary-900)]" >
                         <UIcon
                           :name="tech.icon"

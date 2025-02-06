@@ -25,10 +25,7 @@
   },
   "packageManager": "pnpm@9.15.1+sha512.1acb565e6193efbebda772702950469150cf12bcc764262e7587e71d19dc98a423dff9536e57ea44c49bdf790ff694e83c27be5faa23d67e0c033b583be4bfcf",
   "devDependencies": {
-    "@iconify-json/carbon": "^1.2.6",
-    "@iconify-json/catppuccin": "^1.2.8",
     "@iconify-json/flag": "^1.2.5",
-    "@iconify-json/heroicons": "^1.2.2",
     "@iconify-json/logos": "^1.2.4",
     "@iconify-json/lucide": "^1.2.25",
     "@iconify-json/mdi": "^1.2.3",

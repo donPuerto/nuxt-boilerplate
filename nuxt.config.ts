@@ -4,7 +4,6 @@ import tailwindcss from '@tailwindcss/vite'
 import { defineNuxtConfig } from 'nuxt/config'
 import pkg from './package.json'
 import headConfig from './config/head.config'
-
 const { resolve } = createResolver(import.meta.url)
 
 // Define base URL from environment variables
@@ -111,6 +110,7 @@ export default defineNuxtConfig({
       },
       devDependencies: {
         typescript: pkg.devDependencies.typescript,
+        tailwind: pkg.devDependencies.tailwindcss,
       },
     },
   },
@@ -184,21 +184,21 @@ icon: {
 
     // Specify collections for server-side rendering
     collections: [
-      'heroicons', 'mdi', 'simple-icons'
+      // 'heroicons', 'mdi', 'simple-icons'
     ]
   },
 
    // Client Bundle Configuration
-   clientBundle: {
-    // Enable scanning to detect and bundle frequently used icons
-    scan: {
-      // Specify directories to scan
-      globInclude: ['components/**/*.vue', 'pages/**/*.vue'],
-      globExclude: ['node_modules', 'dist', '.nuxt']
-    },
-    // Set a reasonable size limit
-    sizeLimitKb: 256
-  }
+  //  clientBundle: {
+  //   // Enable scanning to detect and bundle frequently used icons
+  //   scan: {
+  //     // Specify directories to scan
+  //     globInclude: ['components/**/*.vue', 'pages/**/*.vue'],
+  //     globExclude: ['node_modules', 'dist', '.nuxt']
+  //   },
+  //   // Set a reasonable size limit
+  //   sizeLimitKb: 256
+  // }
  
 },
   // icon: {
