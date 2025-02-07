@@ -184,85 +184,92 @@ const handleStatClick = async () => {
     <!-- Hero Section -->
     <div class="px-0 mx-auto max-w-7xl">
       <div class="relative isolate">
-        <!-- Content -->
-        <div class="py-8 sm:py-12 lg:py-16 border border-red-500">
-          <div class="relative mx-auto text-center">
-            <!-- Hero Content -->
-            <div class="relative z-20">
-              <div class="relative">
-                <h1 class="text-5xl font-bold tracking-tight text-[var(--ui-color-primary-600)] dark:text-[var(--ui-color-primary-400)] sm:text-6xl md:text-7xl lg:text-8xl">
-                  <span class="relative block mt-2">
-                    Nuxt Boilerplate
-                  </span>
-                </h1>
+        <!-- Hero Content -->
+        <div class="py-8 sm:py-12 lg:py-16">
+          <div class="mx-auto text-center">
+            <h1
+              class="text-center text-3xl font-bold leading-tight tracking-tighter lg:leading-[1.1] md:text-6xl"
+            >
+              Build
+              <UiTextHighlight
+                class="rounded-xl bg-gradient-to-r from-[var(--ui-color-primary-600)] to-[var(--ui-color-primary-400)] px-4 py-1"
+                text-end-color="hsl(var(--accent))"
+              >
+                <UiFlipWords
+                  :words="['beautiful', 'stunning']"
+                  :duration="3000"
+                />
+              </UiTextHighlight>
+              websites using Nuxt
+            </h1>
 
-                <p class="max-w-4xl mx-auto mt-2 text-xl leading-8 text-gray-600 dark:text-gray-300 sm:text-2xl">
-                  A modern, production-ready template featuring Nuxt 4, Vue 3, and TypeScript for a robust development experience.
-                  Start your next project with best practices and powerful features out of the box.
-                </p>
+            <p class="max-w-4xl mx-auto mt-2 text-xl leading-8 text-gray-600 dark:text-gray-300 sm:text-2xl">
+              A modern, production-ready template featuring Nuxt 4, Vue 3, and TypeScript for a robust development experience.
+              Start your next project with best practices and powerful features out of the box.
+            </p>
 
-                <!-- CTA Buttons -->
-                <div class="flex flex-col items-center justify-center gap-4 mt-6 sm:flex-row">
-                  <UButton
-                    to="/components"
-                    color="primary"
-                    variant="solid"
-                    size="xl"
-                    class="w-full sm:w-auto"
-                    trailing-icon="i-custom-arrow-right"
-                  >
-                    Get Started
-                  </UButton>
-                  <UButton
-                    as="a"
-                    href="https://github.com"
-                    target="_blank"
-                    color="primary"
-                    variant="outline"
-                    size="xl"
-                    class="w-full sm:w-auto"
-                    leading-icon="i-custom-github"
-                    trailing-icon="i-custom-external-link"
-                  >
-                    GitHub
-                  </UButton>
-                </div>
+            <div class="">
+              <!-- CTA Buttons -->
+              <div class="flex flex-col items-center justify-center gap-4 mt-6 sm:flex-row">
+                <UButton
+                  to="/components"
+                  color="primary"
+                  variant="solid"
+                  size="xl"
+                  class="w-full sm:w-auto"
+                  trailing-icon="i-custom-arrow-right"
+                >
+                  Get Started
+                </UButton>
+                <UButton
+                  as="a"
+                  href="https://github.com"
+                  target="_blank"
+                  color="primary"
+                  variant="outline"
+                  size="xl"
+                  class="w-full sm:w-auto"
+                  leading-icon="i-custom-github"
+                  trailing-icon="i-custom-external-link"
+                >
+                  GitHub
+                </UButton>
+              </div>
 
-                <!-- Tech Logos -->
-                <div class="mt-8">
-                  <h2
-                    class="text-base font-semibold tracking-wide text-gray-600 uppercase cursor-pointer dark:text-gray-400"
+              <!-- Tech Logos -->
+              <div class="mt-8">
+                <h2
+                  class="text-base font-semibold tracking-wide text-gray-600 uppercase cursor-pointer dark:text-gray-400"
+                  @click="handleStatClick"
+                >
+                  Powered by modern technologies
+                </h2>
+                <div class="flex flex-wrap items-center justify-center gap-6 mt-6">
+                  <div
+                    v-for="tech in technologies"
+                    :key="tech.name"
+                    class="flex flex-col items-center cursor-pointer group"
                     @click="handleStatClick"
                   >
-                    Powered by modern technologies
-                  </h2>
-                  <div class="flex flex-wrap items-center justify-center gap-6 mt-6">
-                    <div
-                      v-for="tech in technologies"
-                      :key="tech.name"
-                      class="flex flex-col items-center cursor-pointer group"
-                      @click="handleStatClick"
-                    >
-                      <div class="flex size-24 sm:size-28 transform items-center justify-center rounded-[var(--ui-radius)] bg-[var(--ui-color-primary)] p-5 sm:p-6 shadow-lg ring-1 ring-[var(--ui-color-primary-200)] transition duration-300 ease-out group-hover:scale-110 group-hover:bg-[var(--ui-color-primary-100)] group-hover:shadow-xl dark:bg-[var(--ui-color-primary-950)] dark:ring-[var(--ui-color-primary-800)] dark:group-hover:bg-[var(--ui-color-primary-900)]">
-                        <UIcon
-                          :name="tech.icon"
-                          class="transition duration-300 ease-out transform size-14 sm:size-16 group-hover:rotate-3"
-                          :class="`text-${tech.color}-600 dark:text-${tech.color}-400`"
-                        />
-                      </div>
-                      <span
-                        class="mt-3 text-base font-medium"
+                    <div class="flex size-24 sm:size-28 transform items-center justify-center rounded-[var(--ui-radius)] bg-[var(--ui-color-primary)] p-5 sm:p-6 shadow-lg ring-1 ring-[var(--ui-color-primary-200)] transition duration-300 ease-out group-hover:scale-110 group-hover:bg-[var(--ui-color-primary-100)] group-hover:shadow-xl dark:bg-[var(--ui-color-primary-950)] dark:ring-[var(--ui-color-primary-800)] dark:group-hover:bg-[var(--ui-color-primary-900)]">
+                      <UIcon
+                        :name="tech.icon"
+                        class="transition duration-300 ease-out transform size-14 sm:size-16 group-hover:rotate-3"
                         :class="`text-${tech.color}-600 dark:text-${tech.color}-400`"
-                      >
-                        {{ tech.name }}
-                      </span>
-                      <span
-                        v-if="tech.version"
-                        class="mt-0.5 text-xs px-2 py-0.5 rounded-[calc(var(--ui-radius)*0.75)] bg-[var(--ui-color-primary-50)] text-[var(--ui-color-primary-700)] transform transition duration-300 ease-out group-hover:scale-105 dark:bg-[var(--ui-color-primary-950)] dark:text-[var(--ui-color-primary-300)]"
-                      >
-                        v{{ tech.version }}
-                      </span>
+                      />
                     </div>
+                    <span
+                      class="mt-3 text-base font-medium"
+                      :class="`text-${tech.color}-600 dark:text-${tech.color}-400`"
+                    >
+                      {{ tech.name }}
+                    </span>
+                    <span
+                      v-if="tech.version"
+                      class="mt-0.5 text-xs px-2 py-0.5 rounded-[calc(var(--ui-radius)*0.75)] bg-[var(--ui-color-primary-50)] text-[var(--ui-color-primary-700)] transform transition duration-300 ease-out group-hover:scale-105 dark:bg-[var(--ui-color-primary-950)] dark:text-[var(--ui-color-primary-300)]"
+                    >
+                      v{{ tech.version }}
+                    </span>
                   </div>
                 </div>
               </div>
