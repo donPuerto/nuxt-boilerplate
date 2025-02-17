@@ -25,6 +25,45 @@ useHead(() => ({
   ],
 }))
 
+// Core Packages
+const installedPackages = ref([
+  {
+    name: 'Vue',
+    description: 'The Progressive JavaScript Framework for building user interfaces',
+    image: '/images/logos/Vue.png',
+    version: config.package.vue,
+    color: 'emerald',
+  },
+  {
+    name: 'Nuxt',
+    description: 'The Intuitive Vue Framework for building modern web applications',
+    image: '/images/logos/Nuxt.png',
+    version: config.package.nuxt,
+    color: 'green',
+  },
+  {
+    name: 'TypeScript',
+    description: 'A typed superset of JavaScript that compiles to plain JavaScript',
+    image: '/images/logos/Typescript.png',
+    version: config.package.typescript,
+    color: 'blue',
+  },
+  {
+    name: 'Nuxt UI',
+    description: 'A fully styled and customizable components library for Nuxt',
+    image: '/images/logos/NuxtUI.png',
+    version: config.package.nuxtUI,
+    color: 'yellow',
+  },
+  {
+    name: 'Tailwind',
+    description: 'A utility-first CSS framework for rapid UI development',
+    image: '/images/logos/Tailwindcss.png',
+    version: config.package.tailwind,
+    color: 'cyan',
+  },
+])
+
 // Technologies
 const technologies = ref([
   {
@@ -183,104 +222,180 @@ const handleStatClick = async () => {
   <main>
     <!-- Hero Section -->
     <div class="px-0 mx-auto max-w-7xl">
-      <div class="relative isolate">
-        <!-- Hero Content -->
-        <div class="py-8 sm:py-12 lg:py-16">
-          <div class="mx-auto text-center">
-            <h1
-              class="text-center text-3xl font-bold leading-tight tracking-tighter lg:leading-[1.1] md:text-6xl"
+      <!-- Hero Content -->
+      <div class="py-8 sm:py-12 lg:py-16">
+        <div class="mx-auto text-center">
+          <h1
+            class="text-center text-3xl font-bold leading-tight tracking-tighter lg:leading-[1.1] md:text-6xl"
+          >
+            Build
+            <UiTextHighlight
+              class="rounded-xl bg-gradient-to-r from-[var(--ui-color-primary-600)] to-[var(--ui-color-primary-400)] px-4 py-1"
+              text-end-color="hsl(var(--accent))"
             >
-              Build
-              <UiTextHighlight
-                class="rounded-xl bg-gradient-to-r from-[var(--ui-color-primary-600)] to-[var(--ui-color-primary-400)] px-4 py-1"
-                text-end-color="hsl(var(--accent))"
-              >
-                <UiFlipWords
-                  :words="['beautiful', 'stunning']"
-                  :duration="3000"
-                />
-              </UiTextHighlight>
-              websites using Nuxt
-            </h1>
+              <UiFlipWords
+                :words="['beautiful', 'stunning']"
+                :duration="3000"
+              />
+            </UiTextHighlight>
+            websites using Nuxt
+          </h1>
 
-            <p class="max-w-4xl mx-auto mt-2 text-xl leading-8 text-gray-600 dark:text-gray-300 sm:text-2xl">
-              A modern, production-ready template featuring Nuxt 4, Vue 3, and TypeScript for a robust development experience.
-              Start your next project with best practices and powerful features out of the box.
-            </p>
+          <p class="max-w-4xl mx-auto mt-2 text-xl leading-snug text-gray-600 dark:text-gray-300 sm:text-2xl text-justify sm:text-center">
+            A modern, production-ready template featuring Nuxt 4, Vue 3, and TypeScript for a robust development experience.
+            Start your next project with best practices and powerful features out of the box.
+          </p>
 
-            <div class="">
-              <!-- CTA Buttons -->
-              <div class="flex flex-col items-center justify-center gap-4 mt-6 sm:flex-row">
-                <UButton
-                  to="/components"
-                  color="primary"
-                  variant="solid"
-                  size="xl"
-                  class="w-full sm:w-auto"
-                  trailing-icon="i-custom-arrow-right"
-                >
-                  Get Started
-                </UButton>
-                <UButton
-                  as="a"
-                  href="https://github.com"
-                  target="_blank"
-                  color="primary"
-                  variant="outline"
-                  size="xl"
-                  class="w-full sm:w-auto"
-                  leading-icon="i-custom-github"
-                  trailing-icon="i-custom-external-link"
-                >
-                  GitHub
-                </UButton>
-              </div>
+          <!-- CTA Buttons -->
+          <div class="flex flex-col items-center justify-center gap-2 mt-6 sm:flex-row">
+            <UButton
+              to="/components"
+              color="primary"
+              variant="solid"
+              size="xl"
+              class="w-full sm:w-auto"
+              trailing-icon="i-custom-arrow-right"
+            >
+              Get Started
+            </UButton>
+            <UButton
+              as="a"
+              href="https://github.com"
+              target="_blank"
+              color="primary"
+              variant="outline"
+              size="xl"
+              class="w-full sm:w-auto"
+              leading-icon="i-custom-github"
+              trailing-icon="i-custom-external-link"
+            >
+              GitHub
+            </UButton>
+          </div>
 
-              <!-- Tech Logos -->
-              <div class="mt-8">
-                <h2
-                  class="text-base font-semibold tracking-wide text-gray-600 uppercase cursor-pointer dark:text-gray-400"
-                  @click="handleStatClick"
+          <!-- installedPackages -->
+          <div class="mx-auto py-8">
+            <h2
+              class="text-base font-semibold tracking-wide text-gray-600 uppercase cursor-pointer dark:text-gray-400"
+            >
+              Powered by modern technologies
+            </h2>
+            <ClientOnly>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto max-w-6xl">
+                <CardContainer
+                  v-for="pkg in installedPackages"
+                  :key="pkg.name"
+                  class="w-full"
                 >
-                  Powered by modern technologies
-                </h2>
-                <div class="flex flex-wrap items-center justify-center gap-6 mt-6">
-                  <div
-                    v-for="tech in technologies"
-                    :key="tech.name"
-                    class="flex flex-col items-center cursor-pointer group"
-                    @click="handleStatClick"
+                  <CardBody
+                    class="relative w-full rounded-xl border p-3 transition-all duration-300 ease-out cursor-pointer bg-[var(--ui-color-primary-50)] dark:bg-[var(--ui-color-primary-950)] hover:bg-[var(--ui-color-primary-100)] dark:hover:bg-[var(--ui-color-primary-900)] flex flex-col h-[200px]"
+                    :class="`border-[var(--ui-color-primary-200)] dark:border-[var(--ui-color-primary-800)]
+                            hover:shadow-lg hover:shadow-${pkg.color}-500/20`"
                   >
-                    <div class="flex size-24 sm:size-28 transform items-center justify-center rounded-[var(--ui-radius)] bg-[var(--ui-color-primary)] p-5 sm:p-6 shadow-lg ring-1 ring-[var(--ui-color-primary-200)] transition duration-300 ease-out group-hover:scale-110 group-hover:bg-[var(--ui-color-primary-100)] group-hover:shadow-xl dark:bg-[var(--ui-color-primary-950)] dark:ring-[var(--ui-color-primary-800)] dark:group-hover:bg-[var(--ui-color-primary-900)]">
-                      <UIcon
-                        :name="tech.icon"
-                        class="transition duration-300 ease-out transform size-14 sm:size-16 group-hover:rotate-3"
-                        :class="`text-${tech.color}-600 dark:text-${tech.color}-400`"
-                      />
-                    </div>
-                    <span
-                      class="mt-3 text-base font-medium"
-                      :class="`text-${tech.color}-600 dark:text-${tech.color}-400`"
+                    <!-- Package Name -->
+                    <CardItem
+                      :translate-z="50"
+                      class="text-lg font-bold"
+                      :class="`text-${pkg.color}-700 dark:text-${pkg.color}-300`"
                     >
-                      {{ tech.name }}
-                    </span>
-                    <span
-                      v-if="tech.version"
-                      class="mt-0.5 text-xs px-2 py-0.5 rounded-[calc(var(--ui-radius)*0.75)] bg-[var(--ui-color-primary-50)] text-[var(--ui-color-primary-700)] transform transition duration-300 ease-out group-hover:scale-105 dark:bg-[var(--ui-color-primary-950)] dark:text-[var(--ui-color-primary-300)]"
+                      {{ pkg.name }}
+                    </CardItem>
+
+                    <!-- Package Description -->
+                    <CardItem
+                      as="p"
+                      translate-z="60"
+                      class="mt-1 text-xs text-left"
+                      :class="`text-${pkg.color}-600/90 dark:text-${pkg.color}-400/90`"
                     >
-                      v{{ tech.version }}
-                    </span>
-                  </div>
+                      {{ pkg.description }}
+                    </CardItem>
+
+                    <!-- Package Icon -->
+                    <CardItem
+                      :translate-z="100"
+                      class="flex-1 w-full p-2"
+                    >
+                      <div class="w-full h-full flex items-center justify-center">
+                        <NuxtImg
+                          :src="pkg.image"
+                          :alt="`${pkg.name} logo`"
+                          width="40"
+                          height="40"
+                          class="w-10 h-10 object-contain transition-transform duration-300 hover:scale-110"
+                        />
+                      </div>
+                    </CardItem>
+
+                    <!-- Version Tag -->
+                    <CardItem
+                      :translate-z="20"
+                      class="mt-1 flex justify-end"
+                    >
+                      <span
+                        class="text-[10px] font-medium px-2 py-1 rounded-full transition-colors duration-200"
+                        :class="{
+                          'bg-emerald-100/80 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300': pkg.color === 'emerald',
+                          'bg-green-100/80 text-green-700 dark:bg-green-900/30 dark:text-green-300': pkg.color === 'green',
+                          'bg-blue-100/80 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300': pkg.color === 'blue',
+                          'bg-yellow-100/80 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300': pkg.color === 'yellow',
+                          'bg-cyan-100/80 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300': pkg.color === 'cyan',
+                        }"
+                      >
+                        {{ pkg.name }} v{{ pkg.version }}
+                      </span>
+                    </CardItem>
+                  </CardBody>
+                </CardContainer>
+              </div>
+            </ClientOnly>
+          </div>
+          <!-- installedPackages -->
+
+          <!-- Tech Logos -->
+          <div class="my-8 px-4">
+            <h2
+              class="text-base font-semibold tracking-wide text-gray-600 uppercase cursor-pointer dark:text-gray-400"
+              @click="handleStatClick"
+            >
+              Powered by modern technologies
+            </h2>
+            <div class="flex flex-wrap items-center justify-center gap-6 mt-6">
+              <div
+                v-for="tech in technologies"
+                :key="tech.name"
+                class="flex flex-col items-center cursor-pointer group"
+                @click="handleStatClick"
+              >
+                <div class="flex size-24 sm:size-28 transform items-center justify-center rounded-[var(--ui-radius)] bg-[var(--ui-color-primary)] p-5 sm:p-6 shadow-lg ring-1 ring-[var(--ui-color-primary-200)] transition duration-300 ease-out group-hover:scale-110 group-hover:bg-[var(--ui-color-primary-100)] group-hover:shadow-xl dark:bg-[var(--ui-color-primary-950)] dark:ring-[var(--ui-color-primary-800)] dark:group-hover:bg-[var(--ui-color-primary-900)]">
+                  <UIcon
+                    :name="tech.icon"
+                    class="transition duration-300 ease-out transform size-14 sm:size-16 group-hover:rotate-3"
+                    :class="`text-${tech.color}-600 dark:text-${tech.color}-400`"
+                    size="32"
+                  />
                 </div>
+                <span
+                  class="mt-3 text-base font-medium"
+                  :class="`text-${tech.color}-600 dark:text-${tech.color}-400`"
+                >
+                  {{ tech.name }}
+                </span>
+                <span
+                  v-if="tech.version"
+                  class="mt-0.5 text-xs px-2 py-0.5 rounded-[calc(var(--ui-radius)*0.75)] bg-[var(--ui-color-primary-50)] text-[var(--ui-color-primary-700)] transform transition duration-300 ease-out group-hover:scale-105 dark:bg-[var(--ui-color-primary-950)] dark:text-[var(--ui-color-primary-300)]"
+                >
+                  v{{ tech.version }}
+                </span>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Bottom Gradient Ball -->
-        <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
-          <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[var(--ui-color-primary-500)] to-[var(--ui-color-primary-300)] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" />
-        </div>
+      <!-- Bottom Gradient Ball -->
+      <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
+        <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[var(--ui-color-primary-500)] to-[var(--ui-color-primary-300)] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" />
       </div>
     </div>
 

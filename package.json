@@ -25,6 +25,7 @@
     "@iconify-json/flag": "^1.2.5",
     "@inspira-ui/plugins": "^0.0.1",
     "@nuxt/eslint": "^1.0.0",
+    "@nuxt/image": "^1.9.0",
     "@nuxt/kit": "npm:@nuxt/kit-nightly@4.0.0-28976411.9b689ea8",
     "@nuxt/schema": "^3.15.4",
     "@nuxtjs/i18n": "^9.1.5",

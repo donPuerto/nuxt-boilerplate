@@ -23,6 +23,7 @@ export default defineNuxtConfig({
     'nuxt-schema-org',
     '@nuxtjs/i18n',
     'motion-v/nuxt',
+    '@nuxt/image',
   ],
   devtools: { enabled: true },
   app: {
@@ -77,6 +78,13 @@ export default defineNuxtConfig({
       siteName: process.env.NUXT_PUBLIC_SITE_NAME,
       siteDescription: process.env.NUXT_PUBLIC_SITE_DESCRIPTION,
       version: pkg.version,
+      package: {
+        vue: pkg.dependencies.vue,
+        nuxt: pkg.dependencies.nuxt,
+        nuxtUI: pkg.dependencies['@nuxt/ui'],
+        typescript: pkg.devDependencies.typescript,
+        tailwind: pkg.devDependencies.tailwindcss,
+      },
       dependencies: {
         vue: pkg.dependencies.vue,
         nuxt: pkg.dependencies.nuxt,
