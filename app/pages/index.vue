@@ -197,12 +197,12 @@ const startCounterAnimation = () => {
 
     requestAnimationFrame(updateCounter)
   });
-};
+}
 
 // Format value
 const formatValue = (value: number): string => {
   return Math.round(value).toString() + '+'
-}
+};
 
 // Handle stat click
 const handleStatClick = async () => {
@@ -215,13 +215,13 @@ const handleStatClick = async () => {
     confettiRadius: 6,
     // confettiSpeed: 0.8,
   })
-}
+};
 </script>
 
 <template>
   <main>
     <!-- Hero Section -->
-    <div class="px-0 mx-auto max-w-7xl">
+    <div class="px-0">
       <!-- Hero Content -->
       <div class="py-8 sm:py-12 lg:py-16">
         <div class="mx-auto text-center">
@@ -274,21 +274,21 @@ const handleStatClick = async () => {
           </div>
 
           <!-- installedPackages -->
-          <div class="mx-auto py-8">
+          <div class="py-8">
             <h2
               class="text-base font-semibold tracking-wide text-gray-600 uppercase cursor-pointer dark:text-gray-400"
             >
               Powered by modern technologies
             </h2>
             <ClientOnly>
-              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto max-w-6xl">
+              <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                 <CardContainer
                   v-for="pkg in installedPackages"
                   :key="pkg.name"
                   class="w-full"
                 >
                   <CardBody
-                    class="relative w-full rounded-xl border p-3 transition-all duration-300 ease-out cursor-pointer bg-[var(--ui-color-primary-50)] dark:bg-[var(--ui-color-primary-950)] hover:bg-[var(--ui-color-primary-100)] dark:hover:bg-[var(--ui-color-primary-900)] flex flex-col h-[200px]"
+                    class="relative w-full rounded-xl border p-2 transition-all duration-300 ease-out cursor-pointer bg-[var(--ui-color-primary-50)] dark:bg-[var(--ui-color-primary-950)] hover:bg-[var(--ui-color-primary-100)] dark:hover:bg-[var(--ui-color-primary-900)] flex flex-col h-[180px]"
                     :class="`border-[var(--ui-color-primary-200)] dark:border-[var(--ui-color-primary-800)]
                             hover:shadow-lg hover:shadow-${pkg.color}-500/20`"
                   >
@@ -314,16 +314,16 @@ const handleStatClick = async () => {
                     <!-- Package Icon -->
                     <CardItem
                       :translate-z="100"
-                      class="flex-1 w-full p-2"
+                      class="flex-1 w-full"
                     >
                       <div class="w-full h-full flex items-center justify-center">
-                        <NuxtImg
-                          :src="pkg.image"
-                          :alt="`${pkg.name} logo`"
-                          width="40"
-                          height="40"
-                          class="w-10 h-10 object-contain transition-transform duration-300 hover:scale-110"
-                        />
+                        <div class="w-16 h-16 relative flex items-center justify-center">
+                          <NuxtImg
+                            :src="pkg.image"
+                            :alt="`${pkg.name} logo`"
+                            class="max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-300 hover:scale-110"
+                          />
+                        </div>
                       </div>
                     </CardItem>
 
