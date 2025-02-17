@@ -197,12 +197,12 @@ const startCounterAnimation = () => {
 
     requestAnimationFrame(updateCounter)
   });
-}
+};
 
 // Format value
 const formatValue = (value: number): string => {
   return Math.round(value).toString() + '+'
-};
+}
 
 // Handle stat click
 const handleStatClick = async () => {
@@ -215,16 +215,16 @@ const handleStatClick = async () => {
     confettiRadius: 6,
     // confettiSpeed: 0.8,
   })
-};
+}
 </script>
 
 <template>
   <main>
     <!-- Hero Section -->
-    <div class="px-0">
+    <div>
       <!-- Hero Content -->
       <div class="py-8 sm:py-12 lg:py-16">
-        <div class="mx-auto text-center">
+        <div class="text-center">
           <h1
             class="text-center text-3xl font-bold leading-tight tracking-tighter lg:leading-[1.1] md:text-6xl"
           >
@@ -276,16 +276,16 @@ const handleStatClick = async () => {
           <!-- installedPackages -->
           <div class="py-8">
             <h2
-              class="text-base font-semibold tracking-wide text-gray-600 uppercase cursor-pointer dark:text-gray-400"
+              class="text-2xl font-bold mb-4 text-center"
             >
               Powered by modern technologies
             </h2>
             <ClientOnly>
-              <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+              <div class="flex flex-wrap justify-center gap-4">
                 <CardContainer
                   v-for="pkg in installedPackages"
                   :key="pkg.name"
-                  class="w-full"
+                  class="flex-1 basis-full sm:basis-[calc(50%-8px)] md:basis-[calc(33.333%-12px)] xl:basis-[calc(20%-16px)] min-w-[240px] max-w-[300px]"
                 >
                   <CardBody
                     class="relative w-full rounded-xl border p-2 transition-all duration-300 ease-out cursor-pointer bg-[var(--ui-color-primary-50)] dark:bg-[var(--ui-color-primary-950)] hover:bg-[var(--ui-color-primary-100)] dark:hover:bg-[var(--ui-color-primary-900)] flex flex-col h-[180px]"
