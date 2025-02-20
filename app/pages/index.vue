@@ -274,9 +274,9 @@ const handleStatClick = async () => {
           </div>
 
           <!-- installedPackages -->
-          <div class="py-8">
+          <div class="py-8 mt-6">
             <h2
-              class="text-2xl font-bold mb-4 text-center"
+              class="text-base font-semibold tracking-wide text-gray-600 uppercase cursor-pointer dark:text-gray-400 mb-4"
             >
               Powered by modern technologies
             </h2>
@@ -288,7 +288,7 @@ const handleStatClick = async () => {
                   class="flex-1 basis-full sm:basis-[calc(50%-8px)] md:basis-[calc(33.333%-12px)] xl:basis-[calc(20%-16px)] min-w-[240px] max-w-[300px]"
                 >
                   <CardBody
-                    class="relative w-full rounded-xl border p-2 transition-all duration-300 ease-out cursor-pointer bg-[var(--ui-color-primary-50)] dark:bg-[var(--ui-color-primary-950)] hover:bg-[var(--ui-color-primary-100)] dark:hover:bg-[var(--ui-color-primary-900)] flex flex-col h-[180px]"
+                    class="relative w-full border p-2 transition-all duration-300 ease-out cursor-pointer bg-[var(--ui-color-primary-50)] dark:bg-[var(--ui-color-primary-950)] hover:bg-[var(--ui-color-primary-100)] dark:hover:bg-[var(--ui-color-primary-900)] flex flex-col h-[180px] rounded-[var(--ui-radius)]"
                     :class="`border-[var(--ui-color-primary-200)] dark:border-[var(--ui-color-primary-800)]
                             hover:shadow-lg hover:shadow-${pkg.color}-500/20`"
                   >
