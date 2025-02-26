@@ -197,12 +197,12 @@ const startCounterAnimation = () => {
 
     requestAnimationFrame(updateCounter)
   });
-};
+}
 
 // Format value
 const formatValue = (value: number): string => {
   return Math.round(value).toString() + '+'
-}
+};
 
 // Handle stat click
 const handleStatClick = async () => {
@@ -215,7 +215,7 @@ const handleStatClick = async () => {
     confettiRadius: 6,
     // confettiSpeed: 0.8,
   })
-}
+};
 </script>
 
 <template>
@@ -281,72 +281,74 @@ const handleStatClick = async () => {
               Powered by modern technologies
             </h2>
             <ClientOnly>
-              <div class="flex flex-wrap justify-center gap-4">
-                <CardContainer
-                  v-for="pkg in installedPackages"
-                  :key="pkg.name"
-                  class="flex-1 basis-full sm:basis-[calc(50%-8px)] md:basis-[calc(33.333%-12px)] xl:basis-[calc(20%-16px)] min-w-[240px] max-w-[300px]"
-                >
-                  <CardBody
-                    class="relative w-full border p-2 transition-all duration-300 ease-out cursor-pointer bg-[var(--ui-color-primary-50)] dark:bg-[var(--ui-color-primary-950)] hover:bg-[var(--ui-color-primary-100)] dark:hover:bg-[var(--ui-color-primary-900)] flex flex-col h-[180px] rounded-[var(--ui-radius)]"
-                    :class="`border-[var(--ui-color-primary-200)] dark:border-[var(--ui-color-primary-800)]
-                            hover:shadow-lg hover:shadow-${pkg.color}-500/20`"
+              <div class="max-w-screen-xl mx-auto ">
+                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
+                  <CardContainer
+                    v-for="pkg in installedPackages"
+                    :key="pkg.name"
+                    class="w-full"
                   >
-                    <!-- Package Name -->
-                    <CardItem
-                      :translate-z="50"
-                      class="text-lg font-bold"
-                      :class="`text-${pkg.color}-700 dark:text-${pkg.color}-300`"
+                    <CardBody
+                      class="relative w-full border p-2 transition-all duration-300 ease-out cursor-pointer bg-[var(--ui-color-primary-50)] dark:bg-[var(--ui-color-primary-950)] hover:bg-[var(--ui-color-primary-100)] dark:hover:bg-[var(--ui-color-primary-900)] flex flex-col h-[180px] rounded-[var(--ui-radius)]"
+                      :class="`border-[var(--ui-color-primary-200)] dark:border-[var(--ui-color-primary-800)]
+                              hover:shadow-lg hover:shadow-${pkg.color}-500/20`"
                     >
-                      {{ pkg.name }}
-                    </CardItem>
-
-                    <!-- Package Description -->
-                    <CardItem
-                      as="p"
-                      translate-z="60"
-                      class="mt-1 text-xs text-left"
-                      :class="`text-${pkg.color}-600/90 dark:text-${pkg.color}-400/90`"
-                    >
-                      {{ pkg.description }}
-                    </CardItem>
-
-                    <!-- Package Icon -->
-                    <CardItem
-                      :translate-z="100"
-                      class="flex-1 w-full"
-                    >
-                      <div class="w-full h-full flex items-center justify-center">
-                        <div class="w-16 h-16 relative flex items-center justify-center">
-                          <NuxtImg
-                            :src="pkg.image"
-                            :alt="`${pkg.name} logo`"
-                            class="max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-300 hover:scale-110"
-                          />
-                        </div>
-                      </div>
-                    </CardItem>
-
-                    <!-- Version Tag -->
-                    <CardItem
-                      :translate-z="20"
-                      class="mt-1 flex justify-end"
-                    >
-                      <span
-                        class="text-[10px] font-medium px-2 py-1 rounded-full transition-colors duration-200"
-                        :class="{
-                          'bg-emerald-100/80 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300': pkg.color === 'emerald',
-                          'bg-green-100/80 text-green-700 dark:bg-green-900/30 dark:text-green-300': pkg.color === 'green',
-                          'bg-blue-100/80 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300': pkg.color === 'blue',
-                          'bg-yellow-100/80 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300': pkg.color === 'yellow',
-                          'bg-cyan-100/80 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300': pkg.color === 'cyan',
-                        }"
+                      <!-- Package Name -->
+                      <CardItem
+                        :translate-z="50"
+                        class="text-lg font-bold"
+                        :class="`text-${pkg.color}-700 dark:text-${pkg.color}-300`"
                       >
-                        {{ pkg.name }} v{{ pkg.version }}
-                      </span>
-                    </CardItem>
-                  </CardBody>
-                </CardContainer>
+                        {{ pkg.name }}
+                      </CardItem>
+
+                      <!-- Package Description -->
+                      <CardItem
+                        as="p"
+                        translate-z="60"
+                        class="mt-1 text-xs text-left"
+                        :class="`text-${pkg.color}-600/90 dark:text-${pkg.color}-400/90`"
+                      >
+                        {{ pkg.description }}
+                      </CardItem>
+
+                      <!-- Package Icon -->
+                      <CardItem
+                        :translate-z="100"
+                        class="flex-1 w-full"
+                      >
+                        <div class="w-full h-full flex items-center justify-center">
+                          <div class="w-16 h-16 relative flex items-center justify-center">
+                            <NuxtImg
+                              :src="pkg.image"
+                              :alt="`${pkg.name} logo`"
+                              class="max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-300 hover:scale-110"
+                            />
+                          </div>
+                        </div>
+                      </CardItem>
+
+                      <!-- Version Tag -->
+                      <CardItem
+                        :translate-z="20"
+                        class="mt-1 flex justify-end"
+                      >
+                        <span
+                          class="text-[10px] font-medium px-2 py-1 rounded-full transition-colors duration-200"
+                          :class="{
+                            'bg-emerald-100/80 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300': pkg.color === 'emerald',
+                            'bg-green-100/80 text-green-700 dark:bg-green-900/30 dark:text-green-300': pkg.color === 'green',
+                            'bg-blue-100/80 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300': pkg.color === 'blue',
+                            'bg-yellow-100/80 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300': pkg.color === 'yellow',
+                            'bg-cyan-100/80 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300': pkg.color === 'cyan',
+                          }"
+                        >
+                          {{ pkg.name }} v{{ pkg.version }}
+                        </span>
+                      </CardItem>
+                    </CardBody>
+                  </CardContainer>
+                </div>
               </div>
             </ClientOnly>
           </div>
