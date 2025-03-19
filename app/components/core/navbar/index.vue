@@ -4,7 +4,7 @@ const commandPaletteOpen = ref(false)
 
 const toggleDrawer = () => {
   isDrawerOpen.value = !!isDrawerOpen.value
-};
+}
 
 defineShortcuts({
   meta_g: () => {

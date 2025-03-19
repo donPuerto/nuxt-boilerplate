@@ -88,22 +88,22 @@ const handleKeyboard = (e: KeyboardEvent) => {
   switch (e.key) {
     case 'ArrowDown':
       currentIndex.value = (currentIndex.value + 1) % filteredLocales.value.length
-    break;
+      break;
     case 'ArrowUp':
       currentIndex.value = currentIndex.value - 1 < 0
         ? filteredLocales.value.length - 1
         : currentIndex.value - 1
-    break;
+      break;
     case 'Enter': {
-      const selectedLocale = filteredLocales.value[currentIndex.value]
-    if (selectedLocale) {
+    const selectedLocale = filteredLocales.value[currentIndex.value]
+      if (selectedLocale) {
         switchLanguage(selectedLocale)
-    }
+      }
       break;
     }
     case 'Escape':
       isOpen.value = false
-    break;
+      break;
   }
 }
 

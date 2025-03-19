@@ -33,16 +33,16 @@ export const ALL_LOCALES: LocaleConfig[] = [
 // Helper functions
 export const getLocaleByCode = (code: string): LocaleConfig | undefined => {
   return ALL_LOCALES.find(locale => locale.code === code)
-};
+}
 
 export const getEnabledLocales = (): LocaleConfig[] => {
   return ALL_LOCALES
-};
+}
 
 export const getLocalesByRegion = (region: string): LocaleConfig[] => {
   return ALL_LOCALES.filter(locale => locale.region === region)
-};
+}
 
 export const getAllRegions = (): string[] => {
   return [...new Set(ALL_LOCALES.map(locale => locale.region))]
-};
+}

@@ -197,12 +197,12 @@ const startCounterAnimation = () => {
 
     requestAnimationFrame(updateCounter)
   });
-}
+};
 
 // Format value
 const formatValue = (value: number): string => {
   return Math.round(value).toString() + '+'
-};
+}
 
 // Handle stat click
 const handleStatClick = async () => {
@@ -215,7 +215,7 @@ const handleStatClick = async () => {
     confettiRadius: 6,
     // confettiSpeed: 0.8,
   })
-};
+}
 </script>
 
 <template>

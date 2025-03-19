@@ -11,7 +11,9 @@ Designed to help you kickstart your next project with:
 - SEO-friendly structure
 - Modern development tools
 - Custom icon system with Iconify integration
-- Vue Motion
+- Vue Motion for animations
+- Advanced i18n support for multilingual applications
+- Image optimization with Nuxt Image
 
 Perfect for building:
 - Web Applications
@@ -27,6 +29,9 @@ Perfect for building:
 - [TailwindCSS 4](https://tailwindcss.com) - A utility-first CSS framework
 - [TypeScript](https://www.typescriptlang.org/) - Type safety and better DX
 - [ESLint](https://eslint.org/) - Code linting
+- [Vue Motion](https://motion.vueuse.org/) - Declarative animations
+- [Nuxt Image](https://image.nuxtjs.org/) - Image optimization
+- [Nuxt i18n](https://i18n.nuxtjs.org/) - Internationalization
 - Dark Mode Support
 - Fully Responsive Design
 - Custom Icon System
@@ -96,6 +101,14 @@ Create a `.env` file in the root directory:
 
 ```env
 # Add your environment variables here
+NUXT_PUBLIC_BASE_URL=http://localhost:3000
+NUXT_PUBLIC_SITE_NAME=Nuxt Boilerplate
+NUXT_PUBLIC_SITE_DESCRIPTION=A modern Nuxt 4 boilerplate
+NUXT_PUBLIC_DEFAULT_LOCALE=en-US
+NUXT_PUBLIC_TWITTER_HANDLE=@yourhandle
+NUXT_PUBLIC_GITHUB_URL=https://github.com/your-repo
+NUXT_PUBLIC_LINKEDIN_URL=https://linkedin.com/in/your-profile
+NUXT_PUBLIC_PORTFOLIO_URL=https://your-portfolio.com
 ```
 
 ## Contributing
@@ -116,3 +129,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Nuxt UI](https://ui.nuxt.com)
 - [TailwindCSS](https://tailwindcss.com)
 - [Vue.js](https://vuejs.org)
+- [Vue Motion](https://motion.vueuse.org/)
+- [Nuxt Image](https://image.nuxtjs.org/)
+- [Nuxt i18n](https://i18n.nuxtjs.org/)
