@@ -11,9 +11,14 @@ module.exports = {
     './layouts/**/*.vue',
     './pages/**/*.vue',
     './plugins/**/*.{js,ts}',
-    './nuxt.config.{js,ts}',
+    './app.vue',
+    './app/**/*.{js,vue,ts}',
     './node_modules/@nuxt/ui/**/*.{js,ts,vue}',
   ],
+  prefix: '',
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
 
   theme: {
     extend: {
