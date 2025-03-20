@@ -24,11 +24,11 @@ const socials = [
       <div class="py-12 flex flex-col items-center gap-8">
         <!-- Logo -->
         <div class="flex justify-center">
-          <UIcon
+          <Icon
             color="primary"
             name="i-custom-logo"
-            size="32"
-            class="text-primary-500 dark:text-primary-400 transition-all duration-300 hover:scale-110 hover:animate-pulse sm:size-36 md:size-40 lg:size-44"
+            size="16"
+            class="text-primary-500 dark:text-primary-400 transition-all duration-300 hover:scale-110 hover:animate-pulse sm:size-12 md:size-14 lg:size-16"
           />
         </div>
 
@@ -52,7 +52,7 @@ const socials = [
             <Icon
               :name="social.icon"
               :size="22"
-              class="sm:text-3xl md:text-4xl"
+              class="sm:text-2xl md:text-3xl lg:text-2xl"
             />
           </a>
         </div>

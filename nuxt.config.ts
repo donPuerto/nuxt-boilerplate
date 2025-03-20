@@ -29,7 +29,7 @@ export default defineNuxtConfig({
   app: {
     head: headConfig,
     rootAttrs: {
-      'vaul-drawer-wrapper': '',
+      // 'vaul-drawer-wrapper': '',
       'class': 'bg-[var(--ui-bg)]',
     },
     // description: 'A modern Nuxt 3 boilerplate with comprehensive SEO setup',

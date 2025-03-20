@@ -205,7 +205,7 @@ const formatValue = (value: number): string => {
 }
 
 // Handle stat click
-const handleStatClick = async () => {
+const handleConfetti = async () => {
   if (!jsConfetti) return
 
   await jsConfetti.addConfetti({
@@ -292,6 +292,7 @@ const handleStatClick = async () => {
                       class="relative w-full border p-2 transition-all duration-300 ease-out cursor-pointer bg-[var(--ui-color-primary-50)] dark:bg-[var(--ui-color-primary-950)] hover:bg-[var(--ui-color-primary-100)] dark:hover:bg-[var(--ui-color-primary-900)] flex flex-col h-[180px] rounded-[var(--ui-radius)]"
                       :class="`border-[var(--ui-color-primary-200)] dark:border-[var(--ui-color-primary-800)]
                               hover:shadow-lg hover:shadow-${pkg.color}-500/20`"
+                      @click="handleConfetti"
                     >
                       <!-- Package Name -->
                       <CardItem
@@ -354,44 +355,7 @@ const handleStatClick = async () => {
           </div>
           <!-- installedPackages -->
 
-          <!-- Tech Logos -->
-          <div class="my-8 px-4">
-            <h2
-              class="text-base font-semibold tracking-wide text-gray-600 uppercase cursor-pointer dark:text-gray-400"
-              @click="handleStatClick"
-            >
-              Powered by modern technologies
-            </h2>
-            <div class="flex flex-wrap items-center justify-center gap-6 mt-6">
-              <div
-                v-for="tech in technologies"
-                :key="tech.name"
-                class="flex flex-col items-center cursor-pointer group"
-                @click="handleStatClick"
-              >
-                <div class="flex size-24 sm:size-28 transform items-center justify-center rounded-[var(--ui-radius)] bg-[var(--ui-color-primary)] p-5 sm:p-6 shadow-lg ring-1 ring-[var(--ui-color-primary-200)] transition duration-300 ease-out group-hover:scale-110 group-hover:bg-[var(--ui-color-primary-100)] group-hover:shadow-xl dark:bg-[var(--ui-color-primary-950)] dark:ring-[var(--ui-color-primary-800)] dark:group-hover:bg-[var(--ui-color-primary-900)]">
-                  <UIcon
-                    :name="tech.icon"
-                    class="transition duration-300 ease-out transform size-14 sm:size-16 group-hover:rotate-3"
-                    :class="`text-${tech.color}-600 dark:text-${tech.color}-400`"
-                    size="32"
-                  />
-                </div>
-                <span
-                  class="mt-3 text-base font-medium"
-                  :class="`text-${tech.color}-600 dark:text-${tech.color}-400`"
-                >
-                  {{ tech.name }}
-                </span>
-                <span
-                  v-if="tech.version"
-                  class="mt-0.5 text-xs px-2 py-0.5 rounded-[calc(var(--ui-radius)*0.75)] bg-[var(--ui-color-primary-50)] text-[var(--ui-color-primary-700)] transform transition duration-300 ease-out group-hover:scale-105 dark:bg-[var(--ui-color-primary-950)] dark:text-[var(--ui-color-primary-300)]"
-                >
-                  v{{ tech.version }}
-                </span>
-              </div>
-            </div>
-          </div>
+         
         </div>
       </div>
 
